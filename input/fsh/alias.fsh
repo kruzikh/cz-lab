@@ -1,13 +1,14 @@
 //============== ALIAS ===============
 
 //------- Code Systems
+Alias: $nclp = https://terminology.ncez.mzcr.cz/CodeSystems/nclp
 Alias: $loinc = http://loinc.org
 Alias: $v3-ActClass = http://terminology.hl7.org/CodeSystem/v3-ActClass
 Alias: $icd11 = http://id.who.int/icd11/mms
 Alias: $iso3166 = urn:iso:std:iso:3166
-Alias: $Immunization-recommendation-status = http://terminology.hl7.org/CodeSystem/immunization-recommendation-status
+//Alias: $Immunization-recommendation-status = http://terminology.hl7.org/CodeSystem/immunization-recommendation-status
 Alias: $sct =  http://snomed.info/sct
-Alias: $atc = http://www.whocc.no/atc
+//Alias: $atc = http://www.whocc.no/atc
 Alias: $v3-NullFlavor = http://terminology.hl7.org/CodeSystem/v3-NullFlavor
 Alias: $icd-10 = http://hl7.org/fhir/sid/icd-10
 Alias: $ema = https://ec.europa.eu/health/documents/community-register/html/
@@ -21,7 +22,7 @@ Alias: $ema = https://ec.europa.eu/health/documents/community-register/html/
 //Alias: $minsan-regione = http://terminology.hl7.it/CodeSystem/minsan-regione
 Alias: $spor = https://spor.ema.europa.eu/v1/organisations
 //Alias: $jrc = https://covid-19-diagnostics.jrc.ec.europa.eu/devices
-
+Alias: $observation-category = http://terminology.hl7.org/CodeSystem/observation-category
 
 //----------- Profiles
 Alias: $Observation-results-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-uv-ips
