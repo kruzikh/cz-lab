@@ -10,7 +10,7 @@ title: Laboratory Implementation Guide
 description: Laboratory Implementation Guide
 status: draft # draft | active | retired | unknown
 version: 0.1.0
-fhirVersion: 4.3.0 # https://www.hl7.org/fhir/valueset-FHIR-version.html
+fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 copyrightYear: 2022+
 releaseLabel: ci-build # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
 license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
@@ -33,7 +33,7 @@ publisher:
 dependencies:
   hl7.fhir.uv.ips: current
   hl7.fhir.us.mcode: current
-  ncez.fhir.cz.core: dev
+  ncez.fhir.cz.core: current
 #
 # The pages property corresponds to IG.definition.page. SUSHI can
 # auto-generate the page list, but if the author includes pages in
