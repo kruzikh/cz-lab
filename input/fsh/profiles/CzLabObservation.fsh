@@ -7,11 +7,16 @@ Description: "Extension that adds a comment to Observation.ReferenceRange"
 * value[x] only CZ_CodedAnnotation
  */
 Profile: CZ_ObservationLaboratory
-Parent: Observation
+Parent: CZ_ObservationResult
 Id: cz-observation-laboratory
 Title: "Observation Laboratory (CZ)"
-Description: "Czech profile for an observation in a laboratory report"
-* ^url = "https://www.ncez.mzcr.cz/standards/fhir/lab/StructureDefinition/cz-observation-laboratory"
+Description: """This profile constrains the Observation resource to represent results produced by laboratory tests or panels/studies.
+
+This observation may represent the result of a simple laboratory test such as hematocrit or it may group the set of results produced by a multi-test study or panel such as a complete blood count, a dynamic function test, a urine specimen study. In the latter case, the observation carries the overall conclusion of the study and or a global interpretation by the producer of the study in the comment element; and references the atomic results of the study as "has-member" child observations.
+"""
+
+* ^experimental = false
+* ^url = "https://ncez.mzcr.cz/standards/fhir/ig/lab/StructureDefinition/cz-observation-laboratory"
 * ^version = "0.0.1"
 * ^status = #draft
 * ^date = "2021-11-08T16:57:45+01:00"
@@ -20,26 +25,46 @@ Description: "Czech profile for an observation in a laboratory report"
 * ^contact.telecom.value = "http://ncez.mzcr.cz"
 * ^jurisdiction = $iso3166#CZ
 * ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm].valueInteger = 1
+//* ^purpose = "This profile constrains the Observation resource to represent a laboratory in vitro diagnostic test or panel/study. In case of a panel/study, the results of the panel appear as sub-observations. In this case this top-level Observation acts as a grouper of all the observations belonging to the panel or study.  The top-level observation may carry a conclusion in the value element and or a global interpretation by the producer of the study, in the comment element."
+* . ^short = "Laboratory result for a simple test or for a panel/study"
+* . ^definition = "This observation may represent the result of a simple laboratory test such as hematocrit or it may group the set of results produced by a multi-test study or panel such as a complete blood count, a dynamic function test, a urine specimen study. In the latter case, the observation carries the overall conclusion of the study and references the atomic results of the study as \"has-member\" child observations"
+* . ^comment = "Represents either a lab simple observation or the group of observations produced by a laboratory study."
+
 
 
 //* text.status = #empty
+* obeys cz-lab-2
 * language MS
 * identifier MS
 //* basedOn ^mustSupport = false
 * partOf ^mustSupport = false
 * status MS
-* category MS
-// from DE
-* category 1.. MS
+
+* category ^definition = "A code that classifies the general type of observation being made. In this profile, fixed to \"laboratory\"."
+* category ^comment = "\"laboratory\" includes laboratory medicine and pathology"
+* category only CZ_CodeableConcept
+* category ^slicing.discriminator.type = #pattern
+* category ^slicing.discriminator.path = "$this"
+* category ^slicing.rules = #open
+* category ^definition = "A code that classifies the general type of observation being made. In this profile, fixed to \"laboratory\"."
+* category ^comment = "\"laboratory\" includes laboratory medicine and pathology"
+* category contains laboratory 1..1 MS
+* category[laboratory] only CZ_CodeableConcept
+* category[laboratory] = $observation-category#laboratory
+
+/*
 * category.coding MS
 * category.coding ^slicing.discriminator.type = #pattern
 * category.coding ^slicing.discriminator.path = "$this"
 * category.coding ^slicing.rules = #open
+
 * category.coding contains
 //    loinc-observation 1..1 MS and
     observation-category 1..1 MS
 //* category.coding[loinc-observation] = $loinc#26436-6
 * category.coding[observation-category] = $observation-category#laboratory
+*/
+
 // --------------
 //stuff from BeObservation
 //* code only BeObservationCodeableConcept
@@ -54,14 +79,15 @@ Description: "Czech profile for an observation in a laboratory report"
 //* code from $results-laboratory-observations-uv-ips (preferred)
 //* code ^binding.description = "Intensional Value Set Definition: LOINC {  {    STATUS in {ACTIVE}    CLASSTYPE in {1}    CLASS exclude {CHALSKIN, H&P.HX.LAB, H&P.HX, NR STATS, PATH.PROTOCOLS.*}  } }"
 //----------
-* subject only Reference(Group or Device or Location or CZ_Patient)
-* subject MS
+//* subject only Reference(Group or Device or Location or CZ_Patient)
+//* subject MS
 * subject ^short = "In the initial iteration of the Czech interoperability project: this is Patient (CZ)."
-* effective[x] MS
+
+//* effective[x] MS
 // DE
-* effective[x] 1.. MS
-* effective[x] only dateTime or Period
-* effective[x] obeys mii-lab-1
+//* effective[x] 1.. MS
+//* effective[x] only dateTime or Period
+* effective[x] obeys cz-lab-1 // efective datetime musí být uveden s přesností alespoň na den
 * effective[x].extension ^slicing.discriminator.type = #value
 * effective[x].extension ^slicing.discriminator.path = "url"
 * effective[x].extension ^slicing.rules = #open
@@ -81,11 +107,12 @@ Description: "Czech profile for an observation in a laboratory report"
 //* note only CZ_CodedAnnotation
 * bodySite MS
 * method MS
-* specimen only Reference(CZ_SpecimenLaboratory)
+* specimen only Reference(CZ_SpecimenLab)
 * specimen MS
 //* device ^mustSupport = false
 * referenceRange MS
 //* referenceRange.extension contains CZ_ReferenceRangeComment named Comment 0..*
+
 * hasMember only Reference(QuestionnaireResponse or MolecularSequence or CZ_ObservationLaboratory)
 * hasMember MS
 * hasMember ^short = "In the initial iteration of the Czech interoperability project: this is ObservationLaboratory (CZ)"

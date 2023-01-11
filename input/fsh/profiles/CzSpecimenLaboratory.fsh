@@ -1,6 +1,6 @@
-Profile: CZ_SpecimenLaboratory
+Profile: CZ_SpecimenLab
 Parent: Specimen
-Id: cz-specimen-laboratory
+Id: cz-specimen-lab
 Title: "Specimen Laboratory (CZ)"
 Description: "Czech profile for a specimen in a laboratory report. In some laboratory reports, specimen information is allowed to be minimal as many informations concerning the specimen are implied by the observations done."
 * ^url = "https://www.ncez.mzcr.cz/standards/fhir/lab/StructureDefinition/cz-specimen-laboratory"
@@ -24,7 +24,7 @@ Description: "Czech profile for a specimen in a laboratory report. In some labor
 * subject MS
 * subject ^short = "In the initial iteration of the Czech interoperability project, this is CZ_Patient."
 * receivedTime MS
-* parent only Reference(CZ_SpecimenLaboratory)
+* parent only Reference(CZ_SpecimenLab)
 * parent MS
 * request MS
 * collection MS

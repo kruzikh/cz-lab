@@ -75,7 +75,7 @@ Description: "Czech profile for a laboratory report"
 * resultsInterpreter 1.. MS
 * resultsInterpreter only Reference(CZ_Practitioner or CZ_PractitionerRole or CZ_Organization or CareTeam)
 * resultsInterpreter ^short = "In the initial iteration of the Czech interoperability project: this is CZ_Practitioner."
-* specimen only Reference(CZ_SpecimenLaboratory)
+* specimen only Reference(CZ_SpecimenLab)
 * specimen MS
 * result only Reference(CZ_ObservationLaboratory)
 * result MS

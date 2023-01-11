@@ -2,17 +2,18 @@ CodeSystem: NCLP_NCMPATML
 Id: nclp-ncmpatml
 Title: "NČLP - antimikrobiální látky"
 Description: "Kódový systém antimikrobiálních látek NČLP"
-* ^url = "http://ncez.mzcr.cz/fhir/CodeSystem/nclp-ncmpatml"
+//* ^url = "http://ncez.mzcr.cz/fhir/CodeSystem/nclp-ncmpatml"
 * ^identifier.system = "urn:ietf:rfc:3986"
 * ^identifier.value = "urn:oid:1.2.203.24341.11.2.XXXX"   // add OID
 * ^version = "1.0"
 * ^status = #draft
 * ^date = "2022-09-30"
-* ^caseSensitive = false
-//* ^valueSet = "http://highmed.org/ValueSet/resistenzklassen-antiinfektiva-eucast"
-//* ^hierarchyMeaning = #is-a
-//* ^content = #complete
-//* ^count = 3
+* ^experimental = false
+* ^publisher = "NCEZ"
+* ^description = "Antimikrobiální látky NČLP"
+* ^caseSensitive = true
+* ^content = #complete
+
 * #AMC "amoxicilin/k.klavulanová"
 * #AMF "amfotericin B"
 * #AMI "amikacin"

@@ -3,18 +3,18 @@
 # │  used properties are included. For a list of all supported properties and their functions,     │
 # │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
-id: ncez.fhir.cz.lab
-canonical: https://www.ncez.cz/standards/fhir/lab
-name: Laboratory
-title: Laboratory Implementation Guide
-description: Laboratory Implementation Guide
+id: ncez.cz.fhir.lab
+canonical: https://ncez.mzcr.cz/standards/fhir/ig/lab
+name: CzLabImplementationGuide
+title: Czech National Laboratory IG
+description: Czech National Laboratory Implementation Guide
 status: draft # draft | active | retired | unknown
-version: 0.1.0
+version: 0.5.0
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 copyrightYear: 2022+
 releaseLabel: ci-build # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
 license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
-jurisdiction: urn:iso:std:iso:3166#CZ "Czech Republic" # https://www.hl7.org/fhir/valueset-jurisdiction.html
+jurisdiction: urn:iso:std:iso:3166#CZ "Czechia"
 publisher:
   name: Národní centrum elektronického zdravotnictví
   url: https://ncez.mzcr.cz
@@ -32,8 +32,9 @@ publisher:
 #     version: 1.0.0
 dependencies:
   hl7.fhir.uv.ips: current
-  hl7.fhir.us.mcode: current
-  ncez.fhir.cz.core: current
+#  hl7.fhir.us.mcode: current
+  ncez.cz.fhir.core: current
+  hl7.fhir.extensions.r5: 4.0.1
 #
 # The pages property corresponds to IG.definition.page. SUSHI can
 # auto-generate the page list, but if the author includes pages in
@@ -66,7 +67,10 @@ dependencies:
 # parameters:
 #   excludettl: true
 #   validation: [allow-any-extensions, no-broken-links]
-#
+parameters:
+  show-inherited-invariants: false
+  find-other-resources: true
+
 # ╭────────────────────────────────────────────menu.xml────────────────────────────────────────────╮
 # │ The menu property will be used to generate the input/menu.xml file. The menu is represented    │
 # │ as a simple structure where the YAML key is the menu item name and the value is the URL.       │
@@ -77,7 +81,21 @@ dependencies:
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   Home: index.html
-  Artifacts: artifacts.html
+  Obsah: toc.html
+  Modely:
+    Logické modely: models.html
+  Laboratorní nález: labStructure.html
+  Specifikace:
+    Lab Composition: StructureDefinition-cz-laboratory-report-composition.html
+    Lab Profiles: profiles.html
+    Terminologies: terminologies.html
+    Examples: examples.html
+  Seznam artefaktů: artifacts.html
+  Downloads: downloads.html
+#  Support:
+#    FHIR Spec: http://hl7.org/fhir/R4/index.html
+#    Downloads: downloads.html
+# Copyright: copyright.html
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
 # │  Uncomment the properties below to configure additional properties on the ImplementationGuide  │
