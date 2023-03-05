@@ -4,7 +4,7 @@ Title: "NČLP - antimikrobiální látky"
 Description: "Kódový systém antimikrobiálních látek NČLP"
 //* ^url = "http://ncez.mzcr.cz/fhir/CodeSystem/nclp-ncmpatml"
 * ^identifier.system = "urn:ietf:rfc:3986"
-* ^identifier.value = "urn:oid:1.2.203.24341.11.2.XXXX"   // add OID
+* ^identifier.value = "urn:oid:1.2.203.24341.11.2.2.1"
 * ^version = "1.0"
 * ^status = #draft
 * ^date = "2022-09-30"

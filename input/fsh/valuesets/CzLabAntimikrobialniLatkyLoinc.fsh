@@ -4,7 +4,7 @@ Title: "CZ Antimikrobiální látky [LOINC]"
 Description: "Sada obsahuje všechny termíny LOINC, které se používají v pro testování rezistence antiinfektiv (antibiotika, antimykotika, ...)."
 * ^meta.versionId = "1"
 * ^meta.lastUpdated = "2022-08-30T08:48:35.001+00:00"
-* ^url = "https://ncez.mzcr.cz/fhir/ValueSet/cz-antimikrobialni-latky-loinc-vs"
+//* ^url = "https://ncez.mzcr.cz/fhir/ValueSet/cz-antimikrobialni-latky-loinc-vs"
 * ^version = "1.0"
 * ^status = #active
 * ^publisher = "https://ncez.mzcr.cz"

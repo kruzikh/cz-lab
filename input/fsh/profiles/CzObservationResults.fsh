@@ -11,8 +11,10 @@ Description: "This profile constrains the Observation resource to represent vari
 * status = #final (exactly)
 * status ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint"
 * status ^extension.valueString = "default: final"
-//* category only CodeableConceptIPS
-//* code only CodeableConceptIPS
+
+* category only CZ_CodeableConcept
+
+* code only CZ_CodeableConcept
 * code MS
 
 * subject 1.. MS

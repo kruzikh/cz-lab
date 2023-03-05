@@ -1,9 +1,9 @@
 Profile: CZ_LaboratoryReportComposition
 Parent: Composition
 Id: cz-laboratory-report-composition
-Title: "LaboratoryreportComposition (CZ)"
+Title: "Laboratory Report Composition (CZ)"
 Description: "Czech profile for a composition - to be used when a laboratory report is sent as FHIR Document"
-* ^url = "https://www.ncez.mzcr.cz/standards/fhir/lab/StructureDefinition/cz-laboratory-report-composition"
+//* ^url = "https://ncez.mzcr.cz/standards/fhir/ig/lab/StructureDefinition/cz-laboratory-report-composition"
 * ^version = "0.0.1"
 * ^status = #draft
 * ^date = "2022-08-28T16:06:00+01:00"

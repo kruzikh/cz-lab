@@ -3,13 +3,13 @@ Parent: DiagnosticReport
 Id: cz-laboratory-report
 Title: "Laboratory Report (CZ)"
 Description: "Czech profile for a laboratory report"
-* ^url = "https://www.ncez.mzcr.cz/standards/fhir/lab/StructureDefinition/cz-laboratory-report"
+//* ^url = "https://ncez.mzcr.cz/standards/fhir/ig/lab/StructureDefinition/cz-laboratory-report"
 * ^version = "0.0.1"
 * ^status = #draft
 * ^date = "2022-09-27T14:20:00+02:00"
 * ^publisher = "NCEZ"
 * ^contact.telecom.system = #url
-* ^contact.telecom.value = "http://ncez,mzcr.cz"
+* ^contact.telecom.value = "http://ncez.mzcr.cz"
 * ^jurisdiction = $iso3166#CZ
 * extension ^slicing.discriminator.type = #value
 * extension ^slicing.discriminator.path = "url"

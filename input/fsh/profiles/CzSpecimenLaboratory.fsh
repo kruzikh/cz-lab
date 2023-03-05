@@ -3,7 +3,7 @@ Parent: Specimen
 Id: cz-specimen-lab
 Title: "Specimen Laboratory (CZ)"
 Description: "Czech profile for a specimen in a laboratory report. In some laboratory reports, specimen information is allowed to be minimal as many informations concerning the specimen are implied by the observations done."
-* ^url = "https://www.ncez.mzcr.cz/standards/fhir/lab/StructureDefinition/cz-specimen-laboratory"
+//* ^url = "https://ncez.mzcr.cz/standards/fhir/ig/lab/StructureDefinition/cz-specimen-lab"
 * ^version = "0.0.1"
 * ^status = #draft
 * ^date = "2022-09-27T14:58:00+01:00"
@@ -20,6 +20,7 @@ Description: "Czech profile for a specimen in a laboratory report. In some labor
 * status MS
 * type MS
 * type ^definition = "The kind of material that forms the specimen. RECOMMENDED to include."
+* type from CZ_MikrobiologickeVzorkyDASTAVS (preferred)
 * subject only Reference(Group or Device or Substance or Location or CZ_Patient)
 * subject MS
 * subject ^short = "In the initial iteration of the Czech interoperability project, this is CZ_Patient."
@@ -37,5 +38,9 @@ Description: "Czech profile for a specimen in a laboratory report. In some labor
 * processing ^short = "Processing and processing step details to include when not implicit from specimen."
 //* processing ^mustSupport = false
 //* container ^mustSupport = false
+* container MS
+* container.identifier MS
+* container.type MS
+* container.type from cz-lab-container-types-VS (preferred)
 * condition MS
 * note MS

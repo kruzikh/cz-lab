@@ -32,7 +32,7 @@ Description: "Clinical document used to represent a Laboratory Report in the sco
 * status ^short = "Status of the Report"
 
 * type = $loinc#11502-2 // change to a VS binding
-* type //only http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
+* type only CZ_CodeableConcept
   * ^short = "Kind of composition (\"Laboratory Report\")"
   * ^definition = "Specifies that this composition refer to a Laboratory Report"
   // slice the subject to cover the three cases of human ; non-human and mixed
@@ -87,7 +87,7 @@ How to manage the annotation section ? should it be a separate section ?
 
 * section.title 1..
 * section.code 1..
-//* section.code only http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
+* section.code only CZ_CodeableConcept
 
 // RH - this constraint to only Narrative is already in the base Composition resource
 //* section.text only Narrative
@@ -123,7 +123,7 @@ How to manage the annotation section ? should it be a separate section ?
 // * section ^definition = "This section contains data describing an interest or worry about a health state or process that could possibly require attention, intervention, or management. A Health Concern is a health related matter that is of interest, importance or worry to someone, who may be the patient, patient's family or patient's health care provider. Health concerns are derived from a variety of sources within an EHR (such as Problem List, Family History, Social History, Social Worker Note, etc.). Health concerns can be medical, surgical, nursing, allied health or patient-reported concerns. Problem Concerns are a subset of Health Concerns that have risen to the level of importance that they typically would belong on a classic “Problem List”, such as “Diabetes Mellitus” or “Family History of Melanoma” or “Tobacco abuse”. These are of broad interest to multiple members of the care team. Examples of other Health Concerns that might not typically be considered a Problem Concern include “Risk of Hyperkalemia” for a patient taking an ACE-inhibitor medication, or “Transportation difficulties” for someone who doesn't drive and has trouble getting to appointments, or “Under-insured” for someone who doesn't have sufficient insurance to properly cover their medical needs such as medications. These are typically most important to just a limited number of care team members."
 /* * section[xeh-subsections].title 1..
 * section[xeh-subsections].code 1.. */
-* section[xeh-subsections].code only http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
+* section[xeh-subsections].code only CZ_CodeableConcept
 // Should we also include the LabStudyTypesXeh (preferred) binding here?
 * section[xeh-subsections].code from CZ_LabStudyTypesVS (preferred)
 // * section.code = http://loinc.org#75310-3 (exactly) // add binding
@@ -133,7 +133,7 @@ How to manage the annotation section ? should it be a separate section ?
 // add slices check the needed resoucres
 * section[xeh-subsections].section 1..
   * code 1..
-  * code only http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
+  * code only CZ_CodeableConcept
   // And include the LabStudyTypesXeh (preferred) binding for the subsection here?
   * code from CZ_LabStudyTypesVS (preferred)
   // * section.code = http://loinc.org#75310-3 (exactly) // add binding

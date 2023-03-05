@@ -6,6 +6,7 @@ Description: "Extension that adds a comment to Observation.ReferenceRange"
 * ^context[=].expression = "Observation.referenceRange"
 * value[x] only CZ_CodedAnnotation
  */
+
 Profile: CZ_ObservationLaboratory
 Parent: CZ_ObservationResult
 Id: cz-observation-laboratory
@@ -25,7 +26,7 @@ This observation may represent the result of a simple laboratory test such as he
 * ^contact.telecom.value = "http://ncez.mzcr.cz"
 * ^jurisdiction = $iso3166#CZ
 * ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm].valueInteger = 1
-//* ^purpose = "This profile constrains the Observation resource to represent a laboratory in vitro diagnostic test or panel/study. In case of a panel/study, the results of the panel appear as sub-observations. In this case this top-level Observation acts as a grouper of all the observations belonging to the panel or study.  The top-level observation may carry a conclusion in the value element and or a global interpretation by the producer of the study, in the comment element."
+* ^purpose = "This profile constrains the Observation resource to represent a laboratory in vitro diagnostic test or panel/study. In case of a panel/study, the results of the panel appear as sub-observations. In this case this top-level Observation acts as a grouper of all the observations belonging to the panel or study. The top-level observation may carry a conclusion in the value element and or a global interpretation by the producer of the study, in the comment element."
 * . ^short = "Laboratory result for a simple test or for a panel/study"
 * . ^definition = "This observation may represent the result of a simple laboratory test such as hematocrit or it may group the set of results produced by a multi-test study or panel such as a complete blood count, a dynamic function test, a urine specimen study. In the latter case, the observation carries the overall conclusion of the study and references the atomic results of the study as \"has-member\" child observations"
 * . ^comment = "Represents either a lab simple observation or the group of observations produced by a laboratory study."
@@ -65,28 +66,11 @@ This observation may represent the result of a simple laboratory test such as he
 * category.coding[observation-category] = $observation-category#laboratory
 */
 
-// --------------
-//stuff from BeObservation
-//* code only BeObservationCodeableConcept
-* code MS
 * code ^definition = "Describes what was observed. Sometimes this is called the observation \"name\".\r\n\r\nThe implementer SHALL adhere to the preferred codes to use.\r\nThe recommended codification used is NCLP. It is allowed to use multiple codes within the FHIR CodeableConcept datatype. But the first code given must follow the following rules.(Other codes given will be for information purposes.)\r\n\r\nThe actual observation is preferably coded in NCLP \r\n\r\nIf that is not possible, laboratory may send its own local code plus obligatory a text element to further explain. \r\n\r\nIf that is not possible the kind of observation is expressed only in text (allowed but NOT RECOMMENDED)"
-* code from $nclp
-//* code.coding ^slicing.discriminator.type = #value
-//* code.coding ^slicing.discriminator.path = "system"
-//* code.coding ^slicing.rules = #open
-// DE
-//* code MS
-//* code from $results-laboratory-observations-uv-ips (preferred)
-//* code ^binding.description = "Intensional Value Set Definition: LOINC {  {    STATUS in {ACTIVE}    CLASSTYPE in {1}    CLASS exclude {CHALSKIN, H&P.HX.LAB, H&P.HX, NR STATS, PATH.PROTOCOLS.*}  } }"
-//----------
-//* subject only Reference(Group or Device or Location or CZ_Patient)
-//* subject MS
+* code from CZ_NclpLabpolVS (preferred)
+
 * subject ^short = "In the initial iteration of the Czech interoperability project: this is Patient (CZ)."
 
-//* effective[x] MS
-// DE
-//* effective[x] 1.. MS
-//* effective[x] only dateTime or Period
 * effective[x] obeys cz-lab-1 // efective datetime musí být uveden s přesností alespoň na den
 * effective[x].extension ^slicing.discriminator.type = #value
 * effective[x].extension ^slicing.discriminator.path = "url"
@@ -96,17 +80,22 @@ This observation may represent the result of a simple laboratory test such as he
 
 
 * issued MS
+
+// TODO: add standard extension for different performer roles to support all roles in current DASTA standard
 * performer only Reference(CareTeam or RelatedPerson or CZ_Patient or CZ_Organization or CZ_PractitionerRole or CZ_Practitioner)
 * performer MS
 * performer ^short = "In the initial iteration of the Czech interoperability project: this is Organization (CZ) or Practitioner (CZ)"
 * value[x] MS
 * dataAbsentReason MS
 * interpretation MS
-//* interpretation from be-vs-observation-interpretation
+
 * note MS
 //* note only CZ_CodedAnnotation
-* bodySite MS
-* method MS
+
+//* bodySite MS  // MS flag is releavant for lab observation or not?
+
+* method MS  // doplnit binding na xeh-metod-VS - prodiskutovat s Mirkem
+
 * specimen only Reference(CZ_SpecimenLab)
 * specimen MS
 //* device ^mustSupport = false
@@ -116,9 +105,11 @@ This observation may represent the result of a simple laboratory test such as he
 * hasMember only Reference(QuestionnaireResponse or MolecularSequence or CZ_ObservationLaboratory)
 * hasMember MS
 * hasMember ^short = "In the initial iteration of the Czech interoperability project: this is ObservationLaboratory (CZ)"
+
 * derivedFrom only Reference(DocumentReference or ImagingStudy or Media or QuestionnaireResponse or MolecularSequence or CZ_ObservationLaboratory)
 * derivedFrom MS
 * derivedFrom ^short = "In the initial iteration of the Czech interoperability project: this can be ObservationLaboratory (CZ) or Media"
+
 * component MS
 * component ^slicing.discriminator.type = #value
 * component ^slicing.discriminator.path = "code.coding.code"
@@ -190,3 +181,6 @@ This observation may represent the result of a simple laboratory test such as he
 // * device MS
 // * referenceRange MS
 // ----------------
+
+// ToDo: vyřešit urgentnost sdělení z rozhodnutí laboratoře viz blok ku_z_lab
+// ToDo: jak sdělovat výsledky funkčních testů viz položky sci a atribut ind_vazb_fv

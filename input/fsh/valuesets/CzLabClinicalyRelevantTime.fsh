@@ -3,7 +3,7 @@ Id: cz-lab-clinically-relevant-time-VS
 Title: "ValueSet - Clinically Relevant Time"
 Description: "Codes of the clinically relevant times"
 * ^meta.profile = "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
-* ^url = "https://www.ncez.mzcr.cz/fhir/lab/ValueSet/CZ_LabClinicallyRelevantTime"
+//* ^url = "https://ncez.mzcr.cz/fhir/ig/lab/ValueSet/CZ_LabClinicallyRelevantTime"
 * ^version = "1.0"
 * ^status = #active
 * ^experimental = false

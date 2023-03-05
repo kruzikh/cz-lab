@@ -2,6 +2,7 @@
 
 //------- Code Systems
 Alias: $nclp = https://terminology.ncez.mzcr.cz/CodeSystems/nclp
+Alias: $ncmpspm = https://terminology.ncez.mzcr.cz/CodeSystems/ncmpspm //Specifikace mikrobiologických materiálů
 Alias: $loinc = http://loinc.org
 Alias: $v3-ActClass = http://terminology.hl7.org/CodeSystem/v3-ActClass
 Alias: $icd11 = http://id.who.int/icd11/mms
@@ -23,6 +24,9 @@ Alias: $ema = https://ec.europa.eu/health/documents/community-register/html/
 Alias: $spor = https://spor.ema.europa.eu/v1/organisations
 //Alias: $jrc = https://covid-19-diagnostics.jrc.ec.europa.eu/devices
 Alias: $observation-category = http://terminology.hl7.org/CodeSystem/observation-category
+Alias: $ucum =  http://unitsofmeasure.org
+Alias: $v2-0074 = http://terminology.hl7.org/CodeSystem/v2-0074
+Alias: $obs-interpretation = http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation
 
 //----------- Profiles
 Alias: $Observation-results-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-uv-ips
