@@ -1,4 +1,3 @@
-/*
 Instance: BundleMicroCultureSuscLabResult
 InstanceOf: CZ_Bundle_Lab
 Title: "Bundle Microbiology Culture + Susceptibility Lab Result"
@@ -145,7 +144,7 @@ Usage: #inline
 * type = $sct#258580003 "Whole blood specimen"
 //* type = $ncmpspm#SPCVUL_SWSUR "výtěr z chirurgické rány"
 * collection.collectedDateTime = "2022-10-25T07:20:00+01:00"
-* container.type = $sct#706048002 "Blood specimen receptacle"
+//* container.type = $sct#706048002 "Blood specimen receptacle"
 
 
 Instance: Inline-Observation-gram-stain
@@ -483,4 +482,3 @@ Usage: #inline
 * effectiveDateTime = "2022-10-25T13:35:00+01:00"
 * performer[+].display = "MUDr. Aleš Procházka"
 * valueCodeableConcept = $sct#264868006 "No growth"
-*/
