@@ -2,7 +2,7 @@ Profile: CZ_DiagnosticReportLab
 Parent: DiagnosticReport
 Id: cz-diagnostic-report-lab
 Title: "DiagnosticReport: Laboratory Report"
-Description: "DiagnosticReport used to represent an entry of a Laboratory Report, including its context, for the scope of the Czech national interoperability project."
+Description: "Diagnostic Report used to represent an entry of a Laboratory Report, including its context, for the scope of the Czech national interoperability project."
 * ^publisher = "NCEZ"
 * ^copyright = "Národní centrum elektronického zdravotnictví MZČR"
 * . ^short = "Laboratory Report DiagnosticReport"
