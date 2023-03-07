@@ -95,7 +95,7 @@ menu:
 #  Support:
 #    FHIR Spec: http://hl7.org/fhir/R4/index.html
 #    Downloads: downloads.html
-Copyright: copyrights.html
+  Copyright: copyrights.html
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
 # │  Uncomment the properties below to configure additional properties on the ImplementationGuide  │
