@@ -2,7 +2,7 @@ CodeSystem: NCLP_NCMPSPM
 Id: nclp-ncmpspm
 Title: "NČLP - Specifikace mikrobiologických materiálů"
 Description: "Kódový systém mikrobiologických materiálů NČLP"
-* ^url = "https://terminology.ncez.mzcr.cz/CodeSystems/ncmpspm"
+// * ^url = "https://terminology.ncez.mzcr.cz/CodeSystems/ncmpspm"
 * ^identifier.system = "urn:ietf:rfc:3986"
 * ^identifier.value = "urn:oid:1.2.203.24341.11.2.2.2"
 * ^version = "1.0"
