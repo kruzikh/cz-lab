@@ -1,3 +1,4 @@
+
 Instance: SimpleChemistryResultReport
 InstanceOf: CZ_Bundle_Lab
 Title: "Laboratorní výsledková zpráva"
@@ -17,6 +18,24 @@ Usage: #example
 * entry[specimen][=].resource = Inline-Instance-for-Specimen-5837e9bf-8a2b-43c3-bec8-d68dbd7fa7fb
 * entry[specimen][+].fullUrl = "urn:uuid:25dfb673-e7d6-43d0-b50b-6739f1ea9c91"  // Specimen 2
 * entry[specimen][=].resource = Inline-Instance-Specimen-25dfb673-e7d6-43d0-b50b-6739f1ea9c91
+* entry[serviceRequest][+].fullUrl = "urn:uuid:1d4cbcd1-e0d3-49b6-92d8-1893da8d08e1"  // order:service request 1
+* entry[serviceRequest][=].resource = Inline-ServiceRequest-1d4cbcd1-e0d3-49b6-92d8-1893da8d08e1
+* entry[serviceRequest][+].fullUrl = "urn:uuid:3984573c-114e-4e36-9521-9280373b152d"  // order:service request 2
+* entry[serviceRequest][=].resource = Inline-ServiceRequest-3984573c-114e-4e36-9521-9280373b152d
+* entry[diagnosticReport][+].fullUrl = "urn:uuid:5679723c-4fae-4ba7-9f09-5438a827bfda"  // diagnostic report
+* entry[diagnosticReport][=].resource = Inline-Instance-5679723c-4fae-4ba7-9f09-5438a827bfda
+* entry[observation][+].fullUrl = "urn:uuid:763f7902-8103-4d10-8bd1-546a726d43ee"  // observation 1
+* entry[observation][=].resource = Inline-Instance-for-Observation-763f7902-8103-4d10-8bd1-546a726d43ee
+* entry[observation][+].fullUrl = "urn:uuid:18bd102e-0abf-42b0-b4e6-97e47fd385eb"  // observation 2
+* entry[observation][=].resource = Inline-Instance-for-Observation-18bd102e-0abf-42b0-b4e6-97e47fd385eb
+* entry[practitioner][+].fullUrl = "urn:uuid:e512e2e2-9600-4c69-a269-af3ab5421e09"  // Observation Performer: Practitioner (lab technitian)
+* entry[practitioner][=].resource = Inl-Ins-Lab-technician-e512e2e2-9600-4c69-a269-af3ab5421e09
+* entry[practitioner][+].fullUrl = "urn:uuid:0bbabe57-7c43-4211-9e19-81fcec65686d"  // profesisonal attester: Practitioner
+* entry[practitioner][=].resource = Inline-Instance-0bbabe57-7c43-4211-9e19-81fcec65686d
+* entry[practitionerRole][+].fullUrl = "urn:uuid:84476dc3-a732-455f-910e-f2b44428dcc9"  // legal attester: PractitionerRole
+* entry[practitionerRole][=].resource = 84476dc3-a732-455f-910e-f2b44428dcc9
+* entry[practitioner][+].fullUrl = "urn:uuid:8ba59ab8-3cad-47ef-8ba9-72d2fcb934c3"  // legal attester: Practitioner
+* entry[practitioner][=].resource = 8ba59ab8-3cad-47ef-8ba9-72d2fcb934c3
 * entry[practitionerRole][+].fullUrl = "urn:uuid:88868d3e-7ab1-4ee5-983e-b979c4971f5c"  // Author 1: Practitioner role
 * entry[practitionerRole][=].resource = Inline-Instance-for-PractiotionerRole-88868d3e-7ab1-4ee5-983e-b979c4971f5c
 * entry[practitioner][+].fullUrl = "urn:uuid:ab279a0b-320f-483b-9a5d-f1f7e8ceacb2"  // Author 1: Practitioner
@@ -25,34 +44,8 @@ Usage: #example
 * entry[practitionerRole][=].resource = Inline-Instance-for-PractitionerRole-84b2e517-abc2-4268-975d-b12fa8174d30
 * entry[practitioner][+].fullUrl = "urn:uuid:68740937-f732-4ff9-a2e4-bf502d2d125f"  // Author 2: Practitioner
 * entry[practitioner][=].resource = Inline-Instance-68740937-f732-4ff9-a2e4-bf502d2d125f
-* entry[practitioner][+].fullUrl = "urn:uuid:e512e2e2-9600-4c69-a269-af3ab5421e09"  // Observation Performer: Practitioner (lab technitian)
-* entry[practitioner][=].resource = Inl-Ins-Lab-technician-e512e2e2-9600-4c69-a269-af3ab5421e09
 * entry[organization][+].fullUrl = "urn:uuid:ce122b36-f942-4cee-8c6d-b13ece8cf23c" // custodian: Organization
-* entry[organization][=].resource = ce122b36-f942-4cee-8c6d-b13ece8cf23c
-* entry[practitioner][+].fullUrl = "urn:uuid:0bbabe57-7c43-4211-9e19-81fcec65686d"  // profesisonal attester: Practitioner
-* entry[practitioner][=].resource = Inline-Instance-0bbabe57-7c43-4211-9e19-81fcec65686d
-* entry[practitionerRole][+].fullUrl = "urn:uuid:84476dc3-a732-455f-910e-f2b44428dcc9"  // legal attester: PractitionerRole
-* entry[practitionerRole][=].resource = 84476dc3-a732-455f-910e-f2b44428dcc9
-* entry[practitioner][+].fullUrl = "urn:uuid:8ba59ab8-3cad-47ef-8ba9-72d2fcb934c3"  // legal attester: Practitioner
-* entry[practitioner][=].resource = 8ba59ab8-3cad-47ef-8ba9-72d2fcb934c3
-* entry[serviceRequest][+].fullUrl = "urn:uuid:1d4cbcd1-e0d3-49b6-92d8-1893da8d08e1"  // order:service request 1
-* entry[serviceRequest][=].resource = Inline-ServiceRequest-1d4cbcd1-e0d3-49b6-92d8-1893da8d08e1
-* entry[serviceRequest][+].fullUrl = "urn:uuid:3984573c-114e-4e36-9521-9280373b152d"  // order:service request 2
-* entry[serviceRequest][=].resource = Inline-ServiceRequest-3984573c-114e-4e36-9521-9280373b152d
-//* entry[practitionerRole][+].fullUrl = "urn:uuid:1b4b120e-0371-4878-b4c9-b69434e84c72"  // event.detail: practitioner role
-//* entry[practitionerRole][=].resource = Inline-Instance-1b4b120e-0371-4878-b4c9-b69434e84c72
-//* entry[practitioner][+].fullUrl = "urn:uuid:eb62a039-7e02-44cb-ba17-7e4fb42acdde"  // event.detail: practitioner
-//* entry[practitioner][=].resource = eb62a039-7e02-44cb-ba17-7e4fb42acdde
-//* entry[organization][+].fullUrl = "urn:uuid:508f4b29-09ca-4c94-8343-657f1923303a"  // event.detail: organization
-//* entry[organization][=].resource = Inline-Instance-508f4b29-09ca-4c94-8343-657f1923303a
-//* entry[organization][+].fullUrl = "urn:uuid:206fa15d-51ae-4f3d-b8d0-71ee6290ff52"  // event.detail.organization.partof: organization
-//* entry[organization][=].resource = Inline-Instance-206fa15d-51ae-4f3d-b8d0-71ee6290ff52
-* entry[diagnosticReport][+].fullUrl = "urn:uuid:5679723c-4fae-4ba7-9f09-5438a827bfda"  // diagnostic report
-* entry[diagnosticReport][=].resource = Inline-Instance-5679723c-4fae-4ba7-9f09-5438a827bfda
-* entry[observation][+].fullUrl = "urn:uuid:763f7902-8103-4d10-8bd1-546a726d43ee"  // observation 1
-* entry[observation][=].resource = Inline-Instance-for-Observation-763f7902-8103-4d10-8bd1-546a726d43ee
-* entry[observation][+].fullUrl = "urn:uuid:18bd102e-0abf-42b0-b4e6-97e47fd385eb"  // observation 2
-* entry[observation][=].resource = Inline-Instance-for-Observation-18bd102e-0abf-42b0-b4e6-97e47fd385eb
+* entry[organization][=].resource = Inline-Instance-ce122b36-f942-4cee-8c6d-b13ece8cf23c
 
 Instance: Inline-Instance-for-Composition-26032a57-083a-4ddf-b019-e566ae02f740
 InstanceOf: CZ_CompositionLabReport
@@ -205,6 +198,7 @@ Usage: #inline
 * address.postalCode = "00184"
 * address.country = "100"
 
+
 Instance: Inline-Instance-for-PractitionerRole-84b2e517-abc2-4268-975d-b12fa8174d30  // autor 2: role
 InstanceOf: CZ_PractitionerRole
 Usage: #inline
@@ -221,10 +215,10 @@ Usage: #inline
 * name.family = "2"
 * name.given = "Autor"
 
-Instance: ce122b36-f942-4cee-8c6d-b13ece8cf23c   // custodian
+Instance: Inline-Instance-ce122b36-f942-4cee-8c6d-b13ece8cf23c   // custodian
 InstanceOf: CZ_Organization
 Usage: #inline
-* id = ce122b36-f942-4cee-8c6d-b13ece8cf23c
+* id = "ce122b36-f942-4cee-8c6d-b13ece8cf23c"
 * identifier.system = "https://ncez.mzcr.cz/standards/fhir/sid/nrpzs"
 * identifier.value = "120148"
 * identifier.assigner.display = "Ministerstvo zdravotnictví"
@@ -251,6 +245,7 @@ Usage: #inline
 * telecom.system = #phone
 * telecom.value = "603123456"
 * telecom.use = #work
+
 
 Instance: Inl-Ins-Lab-technician-e512e2e2-9600-4c69-a269-af3ab5421e09  // laborant: performer
 InstanceOf: CZ_Practitioner
@@ -293,8 +288,8 @@ Usage: #inline
 * address.postalCode = "15164"
 * address.country = "CZ"
 
-Instance: Inline-ServiceRequest-1d4cbcd1-e0d3-49b6-92d8-1893da8d08e1  // objednávka vyšertření 1
-InstanceOf: ServiceRequest
+Instance: Inline-ServiceRequest-1d4cbcd1-e0d3-49b6-92d8-1893da8d08e1  // objednávka vyšetření 1
+InstanceOf: CZ_ServiceRequestLab
 Usage: #inline
 * id = "1d4cbcd1-e0d3-49b6-92d8-1893da8d08e1"
 * identifier.system = "urn:oid:1.2.203.24341.1.10.8888.4"
@@ -310,7 +305,7 @@ Usage: #inline
 * specimen = Reference(urn:uuid:5837e9bf-8a2b-43c3-bec8-d68dbd7fa7fb)   // urine specimen
 
 Instance: Inline-ServiceRequest-3984573c-114e-4e36-9521-9280373b152d    // objednávka vyšertření 2
-InstanceOf: ServiceRequest
+InstanceOf: CZ_ServiceRequestLab
 Usage: #inline
 * id = "3984573c-114e-4e36-9521-9280373b152d"
 * identifier.system = "urn:oid:1.2.203.24341.1.10.8888.4"
@@ -325,42 +320,6 @@ Usage: #inline
 * subject = Reference(urn:uuid:de17bfd2-8d73-45fa-b0bb-8eb0e463ddb8)
 * specimen = Reference(urn:uuid:25dfb673-e7d6-43d0-b50b-6739f1ea9c91)   // blood specimen
 
-/*
-Instance: Inline-Instance-1b4b120e-0371-4878-b4c9-b69434e84c72  // event.detail: practitioner role
-InstanceOf: PractitionerRole
-Usage: #inline
-* id = "1b4b120e-0371-4878-b4c9-b69434e84c72"
-* practitioner = Reference(urn:uuid:eb62a039-7e02-44cb-ba17-7e4fb42acdde)
-* organization = Reference(urn:uuid:508f4b29-09ca-4c94-8343-657f1923303a)
-
-Instance: eb62a039-7e02-44cb-ba17-7e4fb42acdde    // event.detail: practitioner
-InstanceOf: Practitioner
-Usage: #inline
-* identifier.system = "urn:oid:2.16.840.1.113883.2.9.4.3.2"
-* identifier.value = "MRSSIO79H59Z317K"
-* identifier.assigner.display = "MEF"
-* name.family = "Rossi"
-* name.given = "Mario"
-
-Instance: Inline-Instance-508f4b29-09ca-4c94-8343-657f1923303a    // event.detail: organization
-InstanceOf: Organization
-Usage: #inline
-* id = "508f4b29-09ca-4c94-8343-657f1923303a"
-* identifier.system = "urn:oid:2.16.840.1.113883.2.9.4.1.3"
-* identifier.value = "327700102"
-* identifier.assigner.display = "Ministero della Salute"
-* name = "Nuovo Ospedale S.Agostino (MO)"
-* partOf = Reference(urn:uuid:206fa15d-51ae-4f3d-b8d0-71ee6290ff52)
-*/
-/*
-Instance: Inline-Instance-206fa15d-51ae-4f3d-b8d0-71ee6290ff52
-InstanceOf: Organization
-Usage: #inline
-* id = "206fa15d-51ae-4f3d-b8d0-71ee6290ff52"
-* identifier.system = "urn:oid:2.16.840.1.113883.2.9.4.1.1"
-* identifier.value = "080105"
-* identifier.assigner.display = "Ministero della Salute"
-*/
 Instance: Inline-Instance-5679723c-4fae-4ba7-9f09-5438a827bfda
 InstanceOf: CZ_DiagnosticReportLab
 Usage: #inline
@@ -423,3 +382,6 @@ Usage: #inline
 * referenceRange.high.value = 144
 * referenceRange.high.unit = "umol/L"
 * referenceRange.type = $reference-range-meaning#normal "Normal Range"
+
+/*
+*/
