@@ -1,7 +1,7 @@
 Instance: BundleMicroCultureSuscLabResult
 InstanceOf: CZ_Bundle_Lab
 Title: "Bundle Microbiology Culture + Susceptibility Lab Result"
-Description: "Mikrobiologické kultivační vyšetřní + citlivost"
+Description: "Mikrobiologické kultivační vyšetřní + citlivost. Tento příklad je pouze ilustrativní a dosud nebyl lokalizován pro použití v ČR!"
 Usage: #example
 * identifier.system = "urn:ietf:rfc:3986"
 * identifier.value = "urn:uuid:bfcf00e2-e2bb-4a7d-adaa-3de9d419d27e"
@@ -68,7 +68,7 @@ Usage: #inline
 * id = "2ae95a5c-9094-41a3-a437-ce6d34c55a54"
 //* extension[+].url = $composition-diagnostic-report-reference
 //* extension[=].valueReference = Reference(DiagnosticReport/b864303b-91ab-4e29-ad74-31a7d6566875)
-* extension[diagnostic-report].valueReference = Reference(DiagnosticReport/ec1447fb-7c90-4065-bfa0-3da11de3364a)
+//* extension[diagnostic-report].valueReference = Reference(DiagnosticReport/ec1447fb-7c90-4065-bfa0-3da11de3364a)
 * identifier.system = "urn:ietf:rfc:3986"
 * identifier.value = "urn:uuid:b9fbe06b-8a5c-4b0e-be9c-fc1a52cedc3d"
 * status = #final
@@ -127,7 +127,8 @@ Usage: #inline
 * extension[DiagnosticReportCompositionR5].valueReference = Reference(Composition/4789a3ee-92b1-41b2-9b97-83daacf2a239)
 * status = #final
 * category = $v2-0074#LAB
-* code.text = "Bacterial Aerobic & Anaerobic Culture & Susceptibility"
+* code = $loinc#18725-2 "Mikrobiologická studie"
+* code.text = "Bakteriální aerobní a anaerobní kultura a citlivost"
 * subject = Reference(Patient/56f19992-e73e-45b5-bbdd-6d9aeb60b15a)
 * effectiveDateTime = "2022-10-25T13:35:00+01:00"
 * performer[+].display = "MUDr. Aleš Procházka"
@@ -153,7 +154,7 @@ Usage: #inline
 * id = "333b62b2-47b0-43b5-9745-abec1f0c4656"
 * status = #final
 * category[laboratory] = $observation-category#laboratory
-* category[+] = $v2-0074#MB "Microbiology"
+// * category[laboratory][+] = $v2-0074#MB "Microbiology"
 * code.text = "Gram Stain"
 * subject = Reference(Patient/56f19992-e73e-45b5-bbdd-6d9aeb60b15a)
 * effectiveDateTime = "2022-10-25T13:35:00+01:00"
@@ -167,7 +168,7 @@ InstanceOf: cz-observation-laboratory
 Usage: #inline
 * id = "2b209d21-dc7b-4267-a089-d3b61667945a"
 * status = #final
-* category[+] = $observation-category#laboratory
+* category[laboratory] = $observation-category#laboratory
 * code = $loinc#72163-9 "Leukocytes [Presence] in Specimen by Gram stain"
 * subject = Reference(Patient/56f19992-e73e-45b5-bbdd-6d9aeb60b15a)
 * effectiveDateTime = "2022-10-25T13:35:00+01:00"
@@ -181,7 +182,7 @@ Usage: #inline
 * id = "516884c4-8a1f-4e5b-8492-a7dd190f1fb0"
 * status = #final
 * category[laboratory] = $observation-category#laboratory
-* category[+] = $v2-0074#MB "Microbiology"
+// * category[+] = $v2-0074#MB "Microbiology"
 * code = $loinc#664-3 "Microscopic observation [Identifier] in Specimen by Gram stain"
 * subject = Reference(Patient/56f19992-e73e-45b5-bbdd-6d9aeb60b15a)
 * effectiveDateTime = "2022-10-25T13:35:00+01:00"
@@ -195,7 +196,7 @@ Usage: #inline
 * id = "9018b020-6e21-4afa-9131-5832132092c1"
 * status = #final
 * category[laboratory] = $observation-category#laboratory
-* category[+] = $v2-0074#MB "Microbiology"
+//* category[+] = $v2-0074#MB "Microbiology"
 * code.text = "Observed Quantity"
 * subject = Reference(Patient/56f19992-e73e-45b5-bbdd-6d9aeb60b15a)
 * effectiveDateTime = "2022-10-25T13:35:00+01:00"
@@ -209,7 +210,7 @@ Usage: #inline
 * id = "25c5aa73-387d-4b80-9245-8e1adfa470f5"
 * status = #final
 * category[laboratory] = $observation-category#laboratory
-* category[+] = $v2-0074#MB "Microbiology"
+//* category[+] = $v2-0074#MB "Microbiology"
 * code = $loinc#664-3 "Microscopic observation [Identifier] in Specimen by Gram stain"
 * subject = Reference(Patient/56f19992-e73e-45b5-bbdd-6d9aeb60b15a)
 * effectiveDateTime = "2022-10-25T13:35:00+01:00"
@@ -223,7 +224,7 @@ Usage: #inline
 * id = "f2e48d96-a153-46b3-a15b-58b5aa761853"
 * status = #final
 * category[laboratory] = $observation-category#laboratory
-* category[+] = $v2-0074#MB "Microbiology"
+//* category[+] = $v2-0074#MB "Microbiology"
 * code.text = "Observed Quantity"
 * subject = Reference(Patient/56f19992-e73e-45b5-bbdd-6d9aeb60b15a)
 * effectiveDateTime = "2022-10-25T13:35:00+01:00"
@@ -237,7 +238,7 @@ Usage: #inline
 * id = "297c84f2-28d6-41b5-a270-6f563ef0fdfc"
 * status = #final
 * category[laboratory] = $observation-category#laboratory
-* category[+] = $v2-0074#MB "Microbiology"
+// * category[+] = $v2-0074#MB "Microbiology"
 * code.text = "Aerobic Culture"
 * subject = Reference(Patient/56f19992-e73e-45b5-bbdd-6d9aeb60b15a)
 * effectiveDateTime = "2022-10-25T13:35:00+01:00"
@@ -251,7 +252,7 @@ Usage: #inline
 * id = "6b103ad8-1870-45bb-884a-86675ad404f1"
 * status = #final
 * category[laboratory] = $observation-category#laboratory
-* category[+] = $v2-0074#MB "Microbiology"
+//* category[+] = $v2-0074#MB "Microbiology"
 * code = $loinc#634-6 "Bacteria identified in Specimen by Aerobe culture"
 * subject = Reference(Patient/56f19992-e73e-45b5-bbdd-6d9aeb60b15a)
 * effectiveDateTime = "2022-10-25T13:35:00+01:00"
@@ -266,7 +267,7 @@ Usage: #inline
 * id = "a99f7742-c77d-4650-918b-1e9a6e28cefd"
 * status = #final
 * category[laboratory] = $observation-category#laboratory
-* category[+] = $v2-0074#MB "Microbiology"
+//* category[+] = $v2-0074#MB "Microbiology"
 * code.text = "Microorganism Growth"
 * subject = Reference(Patient/56f19992-e73e-45b5-bbdd-6d9aeb60b15a)
 * effectiveDateTime = "2022-10-25T13:35:00+01:00"
@@ -280,7 +281,7 @@ Usage: #inline
 * id = "31747c3c-0a07-4937-9529-378140609e96"
 * status = #final
 * category[laboratory] = $observation-category#laboratory
-* category[+] = $v2-0074#MB "Microbiology"
+//* category[+] = $v2-0074#MB "Microbiology"
 * code = $loinc#29576-6 "Bacterial susceptibility panel"
 * subject = Reference(Patient/56f19992-e73e-45b5-bbdd-6d9aeb60b15a)
 * effectiveDateTime = "2022-10-25T13:35:00+01:00"
@@ -296,7 +297,7 @@ Usage: #inline
 * id = "652d16a5-91d9-40fb-9c5c-3950683e5d9f"
 * status = #final
 * category[laboratory] = $observation-category#laboratory
-* category[+] = $v2-0074#MB "Microbiology"
+//* category[+] = $v2-0074#MB "Microbiology"
 * code = $loinc#18900-1 "Cephalothin [Susceptibility]"
 * subject = Reference(Patient/56f19992-e73e-45b5-bbdd-6d9aeb60b15a)
 * effectiveDateTime = "2022-10-25T13:35:00+01:00"
@@ -313,7 +314,7 @@ Usage: #inline
 * id = "ccf32a29-d9f5-435a-9c67-e59d7104adff"
 * status = #final
 * category[laboratory] = $observation-category#laboratory
-* category[+] = $v2-0074#MB "Microbiology"
+//* category[+] = $v2-0074#MB "Microbiology"
 * code = $loinc#20629-2 "levoFLOXacin [Susceptibility]"
 * subject = Reference(Patient/56f19992-e73e-45b5-bbdd-6d9aeb60b15a)
 * effectiveDateTime = "2022-10-25T13:35:00+01:00"
@@ -330,7 +331,7 @@ Usage: #inline
 * id = "60f23552-dfb9-4142-95a2-911a41180c78"
 * status = #final
 * category[laboratory] = $observation-category#laboratory
-* category[+] = $v2-0074#MB "Microbiology"
+//* category[+] = $v2-0074#MB "Microbiology"
 * code = $loinc#18961-3 "Oxacillin [Susceptibility]"
 * subject = Reference(Patient/56f19992-e73e-45b5-bbdd-6d9aeb60b15a)
 * effectiveDateTime = "2022-10-25T13:35:00+01:00"
@@ -346,7 +347,7 @@ Usage: #inline
 * id = "848e01c5-1565-4708-92c3-304418a43a40"
 * status = #final
 * category[laboratory] = $observation-category#laboratory
-* category[+] = $v2-0074#MB "Microbiology"
+//* category[+] = $v2-0074#MB "Microbiology"
 * code = $loinc#19000-9 "Vancomycin [Susceptibility]"
 * subject = Reference(Patient/56f19992-e73e-45b5-bbdd-6d9aeb60b15a)
 * effectiveDateTime = "2022-10-25T13:35:00+01:00"
@@ -363,7 +364,7 @@ Usage: #inline
 * id = "424aba49-cc38-4207-b9a0-c484062ecb26"
 * status = #final
 * category[laboratory] = $observation-category#laboratory
-* category[+] = $v2-0074#MB "Microbiology"
+//* category[+] = $v2-0074#MB "Microbiology"
 * code = $loinc#634-6 "Bacteria identified in Specimen by Aerobe culture"
 * subject = Reference(Patient/56f19992-e73e-45b5-bbdd-6d9aeb60b15a)
 * effectiveDateTime = "2022-10-25T13:35:00+01:00"
@@ -378,7 +379,7 @@ Usage: #inline
 * id = "ed8a917b-2e94-4aa9-b824-5dceee2deb90"
 * status = #final
 * category[laboratory] = $observation-category#laboratory
-* category[+] = $v2-0074#MB "Microbiology"
+//* category[+] = $v2-0074#MB "Microbiology"
 * code.text = "Microorganism Growth"
 * subject = Reference(Patient/56f19992-e73e-45b5-bbdd-6d9aeb60b15a)
 * effectiveDateTime = "2022-10-25T13:35:00+01:00"
@@ -391,7 +392,7 @@ Usage: #inline
 * id = "4bc004e5-e77b-46c7-b0d5-3dfa127b48b4"
 * status = #final
 * category[laboratory] = $observation-category#laboratory
-* category[+] = $v2-0074#MB "Microbiology"
+//* category[+] = $v2-0074#MB "Microbiology"
 * code = $loinc#29576-6 "Bacterial susceptibility panel"
 * subject = Reference(Patient/56f19992-e73e-45b5-bbdd-6d9aeb60b15a)
 * effectiveDateTime = "2022-10-25T13:35:00+01:00"
@@ -407,7 +408,7 @@ Usage: #inline
 * id = "4edf70e9-b332-4804-a3bf-5d1c14e9f892"
 * status = #final
 * category[laboratory] = $observation-category#laboratory
-* category[+] = $v2-0074#MB "Microbiology"
+//* category[+] = $v2-0074#MB "Microbiology"
 * code = $loinc#18864-9 "Ampicillin [Susceptibility]"
 * subject = Reference(Patient/56f19992-e73e-45b5-bbdd-6d9aeb60b15a)
 * effectiveDateTime = "2022-10-25T13:35:00+01:00"
@@ -424,7 +425,7 @@ Usage: #inline
 * id = "20e0ab9e-2ce4-431a-adfb-6a727bd49355"
 * status = #final
 * category[laboratory] = $observation-category#laboratory
-* category[+] = $v2-0074#MB "Microbiology"
+//* category[+] = $v2-0074#MB "Microbiology"
 * code = $loinc#18906-8 "Ciprofloxacin [Susceptibility]"
 * subject = Reference(Patient/56f19992-e73e-45b5-bbdd-6d9aeb60b15a)
 * effectiveDateTime = "2022-10-25T13:35:00+01:00"
@@ -441,7 +442,7 @@ Usage: #inline
 * id = "33db08be-9853-4027-ba51-ce646bea8a76"
 * status = #final
 * category[laboratory] = $observation-category#laboratory
-* category[+] = $v2-0074#MB "Microbiology"
+//* category[+] = $v2-0074#MB "Microbiology"
 * code = $loinc#18928-2 "Gentamicin [Susceptibility]"
 * subject = Reference(Patient/56f19992-e73e-45b5-bbdd-6d9aeb60b15a)
 * effectiveDateTime = "2022-10-25T13:35:00+01:00"
@@ -458,7 +459,7 @@ Usage: #inline
 * id = "b4502905-747f-4f96-bfe0-05cc958e6510"
 * status = #final
 * category[laboratory] = $observation-category#laboratory
-* category[+] = $v2-0074#MB "Microbiology"
+//* category[+] = $v2-0074#MB "Microbiology"
 * code = $loinc#18932-4 "Imipenem [Susceptibility]"
 * subject = Reference(Patient/56f19992-e73e-45b5-bbdd-6d9aeb60b15a)
 * effectiveDateTime = "2022-10-25T13:35:00+01:00"
@@ -475,7 +476,7 @@ Usage: #inline
 * id = "e271a348-4f54-4667-86ed-d9ecfb7430f6"
 * status = #final
 * category[laboratory] = $observation-category#laboratory
-* category[+] = $v2-0074#MB "Microbiology"
+//* category[+] = $v2-0074#MB "Microbiology"
 * code = $loinc#635-3 "Bacteria identified in Specimen by Anaerobe culture"
 * code.text = "Anaerobic Culture"
 * subject = Reference(Patient/56f19992-e73e-45b5-bbdd-6d9aeb60b15a)
