@@ -20,7 +20,6 @@ Description: "Clinical document used to represent a Laboratory Report in the sco
 
 /*  TO DO Header
 - add optional data enterer
-- add optional Information Recipient
 - defiend rules for attester to distiguish Authenticators and Legal Auth
 - ordering provider mapped into the order details
 - add Lab DocumentationOf.serviceEvent details
@@ -48,6 +47,8 @@ Description: "Clinical document used to represent a Laboratory Report in the sco
 
 * attester 1.. // RH - should attester be 1.. or 0..? - since author is also required?
 
+* custodian only Reference (CZ_Organization)
+
 * event
   * ^short = "The laboratory service(s) being documented"
   * code ^short =	"Code(s) that apply to the laboratory service(s) being documented"
@@ -59,6 +60,17 @@ Description: "Clinical document used to represent a Laboratory Report in the sco
 * title ^definition = "Official human-readable label for the composition.\r\n\r\nFor this document should be \"Laboratorní nález\" or \"Laboratorní souhrn\""
 
 // ServiceRequest and/or RequestGroup
+
+* section 1..
+  * ^slicing.discriminator[0].type = #exists
+  * ^slicing.discriminator[0].path = "$this.section"
+  * ^slicing.discriminator[+].type = #type
+  * ^slicing.discriminator[=].path = "$this.entry.resolve()"
+  * ^slicing.discriminator[+].type = #pattern
+  * ^slicing.discriminator[=].path = "$this.code"
+  * ^slicing.ordered = false
+  * ^slicing.rules = #open
+  * ^definition = """The \"body\" of the report is organized as a tree of up to two levels of sections: top level sections represent laboratory specialties. A top level section SHALL contain either one text block carrying all the text results produced for this specialty along with Laboratory Data Entries or a set of Laboratory Report Item Sections. In the first case the specialty section happens to also be a leaf section. In the latter case, each (second level) leaf section contained in the (top level) specialty section represents a Report Item: i.e., a battery, a specimen study (especially in microbiology), or an individual test. In addition, any leaf section SHALL contain a Laboratory Data Entries containing the observations of that section in a machine-readable format."""
 
 // add attester
 // RH - attester is already being included above?
