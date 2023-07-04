@@ -72,15 +72,64 @@ Usage: #inline
 * custodian = Reference(urn:uuid:ce122b36-f942-4cee-8c6d-b13ece8cf23c)
 //* event.period.start = "2022-03-24T11:24:26+01:00"
 //* event.detail = Reference(urn:uuid:1b4b120e-0371-4878-b4c9-b69434e84c72)
-* section.title = "Esami delle Urine"
-* section.code = http://loinc.org#18729-4 "Urinalysis studies (set)"
-* section.code.text = "ESAMI DELLE URINE"
-* section.section.title = "Albumina nelle Urine"
-* section.section.code.coding[+] = http://loinc.org#14957-5 "Microalbumin [Mass/volume] in Urine"
-* section.section.code.coding[+] = urn:oid:2.16.840.1.113883.2.9.2.30.6.11#0090334.02 "XXX"
-* section.section.code.text = "Microalbumin Massa/Volume in Urine"
+* section.title = "Laboratorní výsledková zpráva"
+* section.code = $loinc#18719-5 "Biochemická studie"
+* section.code.text = "Biochemie"
+* section.section.title = "Vyšetření moči a krve"
+//* section.section.code.coding[+] = http://loinc.org#14957-5 "Microalbumin [Mass/volume] in Urine"
+//* section.section.code.coding[+] = urn:oid:2.16.840.1.113883.2.9.2.30.6.11#0090334.02 "XXX"
+//* section.section.code.text = "Microalbumin Massa/Volume in Urine"
 * section.section.text.status = #generated
-* section.section.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><ul><li><table id=\"nota1\"><thead><tr><th>Esame</th><th>Metodo utilizzato per l'esame</th><th>Materiale utilizzato per l'esame</th><th>Risultato dell'esame</th><th>Commenti e note</th><th>Unità di Misura</th><th>Range di Riferimento</th><th>Criteri per il range di riferimento</th><th>Interpretazione</th><th>Allegati multimediali</th></tr></thead><tbody><tr><td>Microalbumina massa/volume in urine</td><td/><td>Urine</td><td>20</td><td/><td>mg/L</td><td> 0 - 20 </td><td/><td>N</td><td/></tr></tbody></table></li></ul></div>"
+* section.section.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">
+    <ul>
+        <li>
+            <table id=\"note1\">
+                <thead>
+                    <tr>
+                        <th>Test</th>
+                        <th>Metoda měření</th>
+                        <th>Typ vzorku</th>
+                        <th>Výsledek</th>
+                        <th>Poznámky a komentáře</th>
+                        <th>Jednotka měření</th>
+                        <th>Referenční meze</th>
+                        <th>Typ referenčních mezí</th>
+                        <th>Interpretace</th>
+                        <th>Multimediální přílohy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Urea, látková konc.</td>
+                        <td>Absorpční spektrofotometrie</td>
+                        <td>Moč</td>
+                        <td>60</td>
+                        <td />
+                        <td>mmol/L</td>
+                        <td> 67 - 580 </td>
+                        <td />
+                        <td>&lt;&lt;&lt;</td>
+                        <td />
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>Sodík, látková konc.</td>
+                        <td>Absorpční spektrofotometrie</td>
+                        <td>Sérum</td>
+                        <td>157</td>
+                        <td />
+                        <td>mmol/L</td>
+                        <td> 136 - 145 </td>
+                        <td />
+                        <td>&gt;&gt;&gt;&gt;</td>
+                        <td />
+                    </tr>
+                </tbody>
+            </table>
+        </li>
+    </ul>
+</div>"
 * section.section.entry = Reference(urn:uuid:763f7902-8103-4d10-8bd1-546a726d43ee)
 
 Instance: Inline-Patient-de17bfd2-8d73-45fa-b0bb-8eb0e463ddb8
@@ -342,20 +391,20 @@ Usage: #inline
 * id = "763f7902-8103-4d10-8bd1-546a726d43ee"
 * status = #final
 * code.coding[+] = $nclp#03086 "Urea (S; látková konc. [mmol/l] Absorpční spektrofotometrie)"
-* code.text = "Urea (U) [Moles/Vol]"
+* code.text = "Urea, látková konc."
 * method = $sct#70621000052105 "Absorpční spektrofotometrie"
 * subject = Reference(urn:uuid:de17bfd2-8d73-45fa-b0bb-8eb0e463ddb8)
 * effectiveDateTime = "2023-03-27T11:24:26+01:00"
 * performer[+].display = "" // ToDo: consider cardinality
-* valueQuantity.value = 0.8
+* valueQuantity.value = 60
 * valueQuantity.system = $ucum
 * valueQuantity.code = $ucum#mmol/L
 * valueQuantity.unit = "mmol/L"
 * interpretation = $obs-interpretation#LU "Significantly low"
 * specimen = Reference(urn:uuid:5837e9bf-8a2b-43c3-bec8-d68dbd7fa7fb)  // urine specimen
-* referenceRange.low.value = 2.9
+* referenceRange.low.value = 67
 * referenceRange.low.unit = "mmol/L"
-* referenceRange.high.value = 7.5
+* referenceRange.high.value = 580
 * referenceRange.high.unit = "mmol/L"
 * referenceRange.type = $reference-range-meaning#normal "Normal Range"
 
@@ -365,13 +414,13 @@ Usage: #inline
 * id = "18bd102e-0abf-42b0-b4e6-97e47fd385eb"
 * status = #final
 * code.coding[+] = $nclp#2504 "Na (S; látková konc. [mmol/l] spektrofotometrie-FAES)"
-* code.text = "Sodium (Bld) [Moles/Vol]"
+* code.text = "Sodík, látková konc."
 * method = $sct#70621000052105 "Absorpční spektrofotometrie"
 * subject = Reference(urn:uuid:de17bfd2-8d73-45fa-b0bb-8eb0e463ddb8)
 * effectiveDateTime = "2023-03-27T11:24:26+01:00"
 * performer[+].display = "Jan Laborant"  // ToDo: consider cardinality
 * performer[=] = Reference(urn:uuid:e512e2e2-9600-4c69-a269-af3ab5421e09)
-* valueQuantity.value = 156
+* valueQuantity.value = 157
 * valueQuantity.system = $ucum
 * valueQuantity.code = $ucum#umol/L
 * valueQuantity.unit = "umol/L"
