@@ -30,6 +30,9 @@ Description: "This profile represents the constraints applied to the Bundle reso
 //* entry[composition].resource 1..
 * entry[composition].resource only CZ_CompositionLabReport
 
+* entry contains diagnosticreport 1..1
+* entry[diagnosticreport].resource only DiagnosticReportUvIps  // CZ
+
 * entry contains patient 1..1
 //* entry[patient].resource 1..
 * entry[patient].resource only CZ_Patient
@@ -39,10 +42,7 @@ Description: "This profile represents the constraints applied to the Bundle reso
 * entry[condition].resource only ConditionUvIps // CZ
 
 * entry contains device 0..*
-* entry[device].resource only Device
-
-* entry contains diagnosticreport 1..1
-* entry[diagnosticreport].resource only DiagnosticReportUvIps  // CZ
+* entry[device].resource only CZ_DeviceObserver
 
 * entry contains observation 0..*
 * entry[observation].resource only CZ_ObservationLaboratory // Add profiles
