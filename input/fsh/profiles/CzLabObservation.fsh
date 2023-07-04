@@ -99,6 +99,8 @@ This observation may represent the result of a simple laboratory test such as he
 * specimen only Reference(CZ_SpecimenLab)
 * specimen MS
 //* device ^mustSupport = false
+* device MS
+* device only Reference(CZ_DeviceObserver or  DeviceMetric)
 * referenceRange MS
 //* referenceRange.extension contains CZ_ReferenceRangeComment named Comment 0..*
 
