@@ -14,9 +14,9 @@ Description: "Clinical document used to represent a Laboratory Report in the sco
 
 * extension contains CompositionBasedOnOrderOrRequisition named based-on-order-or-requisition 0..*
 * extension[based-on-order-or-requisition].valueReference only Reference(CZ_ServiceRequestLab)
-* extension contains DiagnosticReportReference named diagnostic-report 1..1
-* extension[diagnostic-report].valueReference only Reference(CZ_DiagnosticReportLab)
-* extension[diagnostic-report].valueReference 1..1
+
+* extension contains InformationRecipient named information-recipient 0..*
+* extension[information-recipient]
 
 /*  TO DO Header
 - add optional data enterer
@@ -48,8 +48,11 @@ Description: "Clinical document used to represent a Laboratory Report in the sco
 
 * attester 1.. // RH - should attester be 1.. or 0..? - since author is also required?
 
-* event ^short = "The laboratory service(s) being documented"
-// add details about the service
+* event
+  * ^short = "The laboratory service(s) being documented"
+  * code ^short =	"Code(s) that apply to the laboratory service(s) being documented"
+  * period ^short = "Period of time covered by the documentation"
+  * detail ^short = "The laboratory service(s) being documented"
 
 * title 1..
 * title ^short = "Laboratorní nález"
