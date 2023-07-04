@@ -37,7 +37,7 @@ Description: "Clinical document used to represent a Laboratory Report in the sco
   * ^definition = "Specifies that this composition refer to a Laboratory Report"
   // slice the subject to cover the three cases of human ; non-human and mixed
 
-* subject only Reference(CZ_Patient or Patient or Group or Location or Device)
+* subject only Reference(CZ_Patient or Patient or Group or Location or Device or CZ_MedicalDevice)
 * subject 1..1
 
 * encounter only Reference (Encounter)  // profile defined for other scopes to be checked
