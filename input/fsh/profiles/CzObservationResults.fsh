@@ -18,7 +18,7 @@ Description: "This profile constrains the Observation resource to represent vari
 * code MS
 
 * subject 1.. MS
-* subject only Reference(CZ_Patient or Group or Device or Location)
+* subject only Reference(CZ_Patient or Group or CZ_MedicalDevice or Device or Location)
 * subject.reference 1.. MS
 
 * effective[x] 1.. MS
