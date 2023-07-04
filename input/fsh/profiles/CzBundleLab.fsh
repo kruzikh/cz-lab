@@ -30,8 +30,8 @@ Description: "This profile represents the constraints applied to the Bundle reso
 //* entry[composition].resource 1..
 * entry[composition].resource only CZ_CompositionLabReport
 
-* entry contains diagnosticreport 1..1
-* entry[diagnosticreport].resource only DiagnosticReportUvIps  // CZ
+* entry contains diagnosticReport 1..1
+* entry[diagnosticReport].resource only CZ_DiagnosticReportLab
 
 * entry contains patient 1..1
 //* entry[patient].resource 1..
@@ -64,8 +64,8 @@ Description: "This profile represents the constraints applied to the Bundle reso
 * entry contains practitioner 0..
 * entry[practitioner].resource only CZ_Practitioner
 
-* entry contains practitionerrole 0..
-* entry[practitionerrole].resource only CZ_PractitionerRole
+* entry contains practitionerRole 0..
+* entry[practitionerRole].resource only CZ_PractitionerRole
 
 * entry contains procedure 0..
 * entry[procedure].resource only ProcedureUvIps // CZ
@@ -75,3 +75,7 @@ Description: "This profile represents the constraints applied to the Bundle reso
 
 * entry contains specimen 0..
 * entry[specimen].resource only CZ_SpecimenLab
+
+* entry contains serviceRequest 0..*
+* entry[serviceRequest].resource only CZ_ServiceRequestLab
+
