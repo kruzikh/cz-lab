@@ -62,7 +62,7 @@ Description: "Czech profile for a laboratory report"
 //* code = $loinc#11502-2 or $loinc#11502-1 (exactly)
 * code 1..
 * subject 1.. MS
-* subject only Reference(CZ_Patient or Group or Device or Location)
+* subject only Reference(CZ_Patient or Group or CZ_MedicalDevice or Location)
 * subject ^short = "In the initial iteration of the Czech interoperability project: this is CZ_Patient."
 * effective[x] MS
 * effective[x] ^short = "Time of the specimen collection - is overruled when collection time is given in .specimen element."
