@@ -22,7 +22,6 @@ Alias: $ema = https://ec.europa.eu/health/documents/community-register/html/
 //Alias: $istat-unitaAmministrativeTerritoriali = http://terminology.hl7.it/CodeSystem/istat-unitaAmministrativeTerritoriali
 //Alias: $minsan-regione = http://terminology.hl7.it/CodeSystem/minsan-regione
 Alias: $spor = https://spor.ema.europa.eu/v1/organisations
-//Alias: $jrc = https://covid-19-diagnostics.jrc.ec.europa.eu/devices
 Alias: $observation-category = http://terminology.hl7.org/CodeSystem/observation-category
 Alias: $ucum =  http://unitsofmeasure.org
 Alias: $v2-0074 = http://terminology.hl7.org/CodeSystem/v2-0074
