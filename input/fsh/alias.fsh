@@ -11,21 +11,17 @@ Alias: $iso3166 = urn:iso:std:iso:3166
 Alias: $sct =  http://snomed.info/sct
 //Alias: $atc = http://www.whocc.no/atc
 Alias: $v3-NullFlavor = http://terminology.hl7.org/CodeSystem/v3-NullFlavor
+Alias: $v3-RoleCode = http://terminology.hl7.org/CodeSystem/v3-RoleCode
 Alias: $icd-10 = http://hl7.org/fhir/sid/icd-10
 Alias: $ema = https://ec.europa.eu/health/documents/community-register/html/
-//Alias: $tempVaccine-eu = http://tempvaccine.eu
-//Alias: $mef-ae-comuni = http://terminology.hl7.it/CodeSystem/mef-ae-comuni
-//Alias: $it-tipoEntita = http://terminology.hl7.it/CodeSystem/it-tipoEntita
-//Alias: $dug = http://registry.geodati.gov.it/dug
-//Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
-//Alias: $aic = https://www.aifa.gov.it/aic // temporary URL
-//Alias: $istat-unitaAmministrativeTerritoriali = http://terminology.hl7.it/CodeSystem/istat-unitaAmministrativeTerritoriali
-//Alias: $minsan-regione = http://terminology.hl7.it/CodeSystem/minsan-regione
 Alias: $spor = https://spor.ema.europa.eu/v1/organisations
 Alias: $observation-category = http://terminology.hl7.org/CodeSystem/observation-category
 Alias: $ucum =  http://unitsofmeasure.org
 Alias: $v2-0074 = http://terminology.hl7.org/CodeSystem/v2-0074
+Alias: $v2-0131 = http://terminology.hl7.org/CodeSystem/v2-0131
+Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
 Alias: $obs-interpretation = http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation
+Alias: $reference-range-meaning = http://terminology.hl7.org/CodeSystem/referencerange-meaning
 
 //----------- Profiles
 Alias: $Observation-results-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-uv-ips
@@ -36,7 +32,6 @@ Alias: $Patient-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-
 Alias: $MedicationStatement-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/MedicationStatement-uv-ips
 Alias: $Immunization-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Immunization-uv-ips
 Alias: $clinicaldocument = http://hl7.org/fhir/StructureDefinition/clinicaldocument
-//Alias: $CodeableConcept-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
 Alias: $data-absent-reason = http://hl7.org/fhir/StructureDefinition/data-absent-reason
 
 //----------- Extensions
