@@ -28,7 +28,7 @@ Annotation Comment
 */
 
 * basedOn only Reference (CZ_ServiceRequestLab)
-* basedOn.extension contains DiagnosticReportBasedOnRequisition named basedOn-requisition 0..*
+//* basedOn.extension contains DiagnosticReportBasedOnRequisition named basedOn-requisition 0..*
 * status ^short = "Status of this report"
 * category 1.. // 1.. ?
 * code from CZ_LabStudyTypesVS (preferred)
