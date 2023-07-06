@@ -3,6 +3,7 @@ Parent: http://hl7.org/fhir/StructureDefinition/clinicaldocument
 Id: cz-composition-lab-report
 Title: "Composition: Laboratory Report"
 Description: "Clinical document used to represent a Laboratory Report in the scope of the Czech national interoperability project."
+* insert SetFmmandStatusRule ( 0, draft )
 * ^publisher = "NCEZ"
 * ^copyright = "NCEZ"
 * . ^short = "Laboratory Report composition"
@@ -27,6 +28,16 @@ Description: "Clinical document used to represent a Laboratory Report in the sco
 */
 
 * text ^short = "Narrative text"
+//* insert ReportIdentifierRule
+//* insert ReportStatusRule
+// * category 1.. // add VS binding
+//* insert ReportCategoryRule
+// * type = $loinc#11502-2 // change to a VS binding
+//* insert ReportTypeRule ( type )
+  // slice the subject tp cover the three cases of human ; non-human and mixed
+//* insert ReportSubjectRule
+//* insert ReportEncounterRule
+
 * identifier ^short = "Business identifier of the Laboratory Report (setID)"
 * status ^short = "Status of the Report"
 
@@ -46,6 +57,12 @@ Description: "Clinical document used to represent a Laboratory Report in the sco
 * author ^definition = "Identifies who is responsible for the information in the Laboratory Report, not necessarily who typed it in."
 
 * attester 1.. // RH - should attester be 1.. or 0..? - since author is also required?
+  * ^short = "Attests the report accuracy"
+  * mode ^short = "The type of attestation"
+  * time ^short = "When the report was attested by the party"
+  * party
+    * ^short = "Who attested the report"
+    * ^comment = "For a Laboratory Report it is usually non expected that the attester would be a Patient or a RealtedPerson"
 
 * custodian only Reference (CZ_Organization)
 
@@ -72,21 +89,12 @@ Description: "Clinical document used to represent a Laboratory Report in the sco
   * ^slicing.rules = #open
   * ^definition = """The \"body\" of the report is organized as a tree of up to two levels of sections: top level sections represent laboratory specialties. A top level section SHALL contain either one text block carrying all the text results produced for this specialty along with Laboratory Data Entries or a set of Laboratory Report Item Sections. In the first case the specialty section happens to also be a leaf section. In the latter case, each (second level) leaf section contained in the (top level) specialty section represents a Report Item: i.e., a battery, a specimen study (especially in microbiology), or an individual test. In addition, any leaf section SHALL contain a Laboratory Data Entries containing the observations of that section in a machine-readable format."""
 
-// add attester
-// RH - attester is already being included above?
-
-
 /*  IS THE SLICE NEEDED IN THIS CASE ?
 // check with the XDlab structure */
 
-* section ^slicing.discriminator[0].type = #exists
-* section ^slicing.discriminator[0].path = "$this.section"
-* section ^slicing.discriminator[+].type = #type
-* section ^slicing.discriminator[=].path = "$this.entry.resolve()"
-* section ^slicing.discriminator[+].type = #pattern
-* section ^slicing.discriminator[=].path = "$this.code"
-* section ^slicing.ordered = false
-* section ^slicing.rules = #open
+/*
+Variant 2: Text and Entry - With this option, the Laboratory Specialty Section text SHALL be present and not blank. This narrative block SHALL present to the human reader, all the observations produced for this Specialty, using the various structures available in the CDA Narrative Block schema (NarrativeBlock.xsd): tables, lists, paragraphs, hyperlinks, footnotes, references to attached or embedded multimedia objects. The narrative block is fully derived from the entry containing the machine-readable result data. Additionally, a single Laboratory Report Data Processing Entry SHALL be present with attribute typeCode=\"DRIV\". This entry contains the machine-readable result data from which the narrative block of this section is derived."""
+*/
 
 
 /* TO DO
@@ -111,71 +119,35 @@ How to manage the annotation section ? should it be a separate section ?
 // Single section  0 .. 1
 // -------------------------------------
 
-// RH - Add 'xeh-' to the slice name, to clarify that there are potentially other "non-xeh" sections that do not meet the "xeh" sets of constraints
-* section contains no-subsections ..* // check if ..1 or ..*
-* section[no-subsections] ^short = "Variant 1: Lab section with text and entry"
-// * section ^definition = "This section contains data describing an interest or worry about a health state or process that could possibly require attention, intervention, or management. A Health Concern is a health related matter that is of interest, importance or worry to someone, who may be the patient, patient's family or patient's health care provider. Health concerns are derived from a variety of sources within an EHR (such as Problem List, Family History, Social History, Social Worker Note, etc.). Health concerns can be medical, surgical, nursing, allied health or patient-reported concerns. Problem Concerns are a subset of Health Concerns that have risen to the level of importance that they typically would belong on a classic “Problem List”, such as “Diabetes Mellitus” or “Family History of Melanoma” or “Tobacco abuse”. These are of broad interest to multiple members of the care team. Examples of other Health Concerns that might not typically be considered a Problem Concern include “Risk of Hyperkalemia” for a patient taking an ACE-inhibitor medication, or “Transportation difficulties” for someone who doesn't drive and has trouble getting to appointments, or “Under-insured” for someone who doesn't have sufficient insurance to properly cover their medical needs such as medications. These are typically most important to just a limited number of care team members."
-
-* section[no-subsections].code from CZ_LabStudyTypesVS (preferred)
-// * section.code = http://loinc.org#75310-3 (exactly) // add binding
-* section[no-subsections].text 1..
-
-// add slices check the needed resources
-// check structure of XD-LAB
-// RH - allow a choice of both DiagnosticReport (optional) and Observation Results Lab (can be a single observation, or a grouper of nested observations)
-// * section[xeh-no-subsections].entry only Reference (DiagnosticReportLabXeh or ObservationResultsLaboratoryXeh)
- // GC - decided to move the DiagnosticReport reference to an extension, instead
-* section[no-subsections].entry only Reference (CZ_ObservationLaboratory)
-* section[no-subsections].section ..0
+* section contains lab-no-subsections ..* // check if ..1 or ..*
+* section[lab-no-subsections]
+  * ^short = "Variant 1: Laboratory Report section with text and entry"
+  * ^definition = """Variant 1: With this option, the Section text SHALL be present and not blank. This narrative block SHALL present to the human reader, all the observations produced for this Specialty, using the various structures available for the FHIR  Narrative. The narrative block should be fully derived from the entry containing the machine-readable result data. Additionally, Laboratory Report Data Entries SHALL be present. This entry contains the machine-readable result data from which the narrative block of this section should be derived."""
+  * code from CZ_LabStudyTypesVS (preferred)
+  * text ^short = "Text summary of the section, for human interpretation."
+  * entry only Reference (CZ_ObservationResultLaboratory)
+  * entry 1..
+  * section ..0
 
 // -------------------------------------
 // Structured sections  0 .. 1
 // -------------------------------------
-
-// RH - Add 'xeh-' to the slice name, to clarify that there are potentially other "non-xeh" sections that do not meet the "xeh" sets of constraints
-* section contains xeh-subsections ..* // check if ..1 or ..*
-* section[xeh-subsections] ^short = "Variant 2: XeH section with one to many subsections Laboratory Report Item"
-// * section ^definition = "This section contains data describing an interest or worry about a health state or process that could possibly require attention, intervention, or management. A Health Concern is a health related matter that is of interest, importance or worry to someone, who may be the patient, patient's family or patient's health care provider. Health concerns are derived from a variety of sources within an EHR (such as Problem List, Family History, Social History, Social Worker Note, etc.). Health concerns can be medical, surgical, nursing, allied health or patient-reported concerns. Problem Concerns are a subset of Health Concerns that have risen to the level of importance that they typically would belong on a classic “Problem List”, such as “Diabetes Mellitus” or “Family History of Melanoma” or “Tobacco abuse”. These are of broad interest to multiple members of the care team. Examples of other Health Concerns that might not typically be considered a Problem Concern include “Risk of Hyperkalemia” for a patient taking an ACE-inhibitor medication, or “Transportation difficulties” for someone who doesn't drive and has trouble getting to appointments, or “Under-insured” for someone who doesn't have sufficient insurance to properly cover their medical needs such as medications. These are typically most important to just a limited number of care team members."
-/* * section[xeh-subsections].title 1..
-* section[xeh-subsections].code 1.. */
-* section[xeh-subsections].code only CZ_CodeableConcept
-// Should we also include the LabStudyTypesXeh (preferred) binding here?
-* section[xeh-subsections].code from CZ_LabStudyTypesVS (preferred)
-// * section.code = http://loinc.org#75310-3 (exactly) // add binding
-* section[xeh-subsections].text 0..0
-* section[xeh-subsections].entry 0..0
-// * section[xeh-subsections].text only Narrative
-// add slices check the needed resoucres
-* section[xeh-subsections].section 1..
-  * code 1..
+* section contains lab-subsections ..* // check if ..1 or ..*
+* section[lab-subsections]
+  * ^short = "Variant 2: EU Laboratory Report section with one to many subsections Laboratory Report Item"
+  * ^definition = """Varient 2: With this option, this Laboratory Specialty Section SHALL contain NEITHER a top level text NOR entry elements. Each Report Item is contained in a corresponding Laboratory Report Item Section which contains the Lab Report Data Entry."""
   * code only CZ_CodeableConcept
-  // And include the LabStudyTypesXeh (preferred) binding for the subsection here?
   * code from CZ_LabStudyTypesVS (preferred)
-  // * section.code = http://loinc.org#75310-3 (exactly) // add binding
-  * text 1..
-  * entry 1..
-  // RH - this constraint to only Narrative is already in the base Composition resource
-  //* text only Narrative
-  // add slices check the needed resoucres
-  // check structure od XD-LAB
-  // RH - allow a choice of both DiagnosticReport (optional) and Observation Results Lab (can be a single observation, or a grouper of nested observations)
-  // GC - decided to move the DiagnosticReport reference to an extension, instead
-  * entry only Reference (CZ_ObservationLaboratory)
-  // * section.entry only Reference (DiagnosticReportLabXeh or ObservationResultsLaboratoryXeh)
-
-// -------------------------------------
-// Payer section  0 .. 1
-// Payer information moved to ServiceRequest
-// -------------------------------------
-
-/* * section contains payers ..* // check if ..1 or ..*
-* section[payers]
-  * ^short = "Payer section"
-  * ^definition = "	Optional information on sources of reimbursement of the performed laboratory tests."
-  * code = http://loinc.org#48768-6 (exactly) // add binding
-  * text 1..
-  * entry only Reference (Coverage)
-  * section ..0 */
+  * text 0..0
+  * entry 0..0
+  * section 1..
+    * code 1..
+    * code only CZ_CodeableConcept
+    * code from CZ_LabStudyTypesVS (preferred)
+    * text ^short = "Text summary of the section, for human interpretation."
+    * entry 1..
+    * entry only Reference (CZ_ObservationResultLaboratory)
+    * section 0..0
 
 // -------------------------------------
 // Annotation section  0 .. 1

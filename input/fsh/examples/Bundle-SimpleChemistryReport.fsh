@@ -130,7 +130,8 @@ Usage: #inline
         </li>
     </ul>
 </div>"
-* section.section.entry = Reference(urn:uuid:763f7902-8103-4d10-8bd1-546a726d43ee)
+//* section.section.entry = Reference(urn:uuid:763f7902-8103-4d10-8bd1-546a726d43ee)
+* section.entry = Reference(urn:uuid:763f7902-8103-4d10-8bd1-546a726d43ee)
 
 Instance: Inline-Patient-de17bfd2-8d73-45fa-b0bb-8eb0e463ddb8
 InstanceOf: CZ_Patient
@@ -386,7 +387,7 @@ Usage: #inline
 * result[+] = Reference(urn:uuid:18bd102e-0abf-42b0-b4e6-97e47fd385eb)
 
 Instance: Inline-Instance-for-Observation-763f7902-8103-4d10-8bd1-546a726d43ee
-InstanceOf: CZ_ObservationLaboratory
+InstanceOf: CZ_ObservationResultLaboratory
 Usage: #inline
 * id = "763f7902-8103-4d10-8bd1-546a726d43ee"
 * status = #final
@@ -409,7 +410,7 @@ Usage: #inline
 * referenceRange.type = $reference-range-meaning#normal "Normal Range"
 
 Instance: Inline-Instance-for-Observation-18bd102e-0abf-42b0-b4e6-97e47fd385eb
-InstanceOf: CZ_ObservationLaboratory
+InstanceOf: CZ_ObservationResultLaboratory
 Usage: #inline
 * id = "18bd102e-0abf-42b0-b4e6-97e47fd385eb"
 * status = #final
@@ -431,6 +432,3 @@ Usage: #inline
 * referenceRange.high.value = 144
 * referenceRange.high.unit = "umol/L"
 * referenceRange.type = $reference-range-meaning#normal "Normal Range"
-
-/*
-*/

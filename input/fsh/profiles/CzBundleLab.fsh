@@ -45,7 +45,7 @@ Description: "This profile represents the constraints applied to the Bundle reso
 * entry[device].resource only CZ_DeviceObserver
 
 * entry contains observation 0..*
-* entry[observation].resource only CZ_ObservationLaboratory // Add profiles
+* entry[observation].resource only CZ_ObservationResultLaboratory // Add profiles
 
 
 /* * entry contains media 0..*

@@ -7,9 +7,9 @@ Description: "Extension that adds a comment to Observation.ReferenceRange"
 * value[x] only CZ_CodedAnnotation
  */
 
-Profile: CZ_ObservationLaboratory
+Profile: CZ_ObservationResultLaboratory
 Parent: CZ_ObservationResult
-Id: cz-observation-laboratory
+Id: cz-observation-result-laboratory
 Title: "Observation Laboratory (CZ)"
 Description: """This profile constrains the Observation resource to represent results produced by laboratory tests or panels/studies.
 
@@ -104,11 +104,11 @@ This observation may represent the result of a simple laboratory test such as he
 * referenceRange MS
 //* referenceRange.extension contains CZ_ReferenceRangeComment named Comment 0..*
 
-* hasMember only Reference(QuestionnaireResponse or MolecularSequence or CZ_ObservationLaboratory)
+* hasMember only Reference(QuestionnaireResponse or MolecularSequence or CZ_ObservationResultLaboratory)
 * hasMember MS
 * hasMember ^short = "In the initial iteration of the Czech interoperability project: this is ObservationLaboratory (CZ)"
 
-* derivedFrom only Reference(DocumentReference or ImagingStudy or Media or QuestionnaireResponse or MolecularSequence or CZ_ObservationLaboratory)
+* derivedFrom only Reference(DocumentReference or ImagingStudy or Media or QuestionnaireResponse or MolecularSequence or CZ_ObservationResultLaboratory)
 * derivedFrom MS
 * derivedFrom ^short = "In the initial iteration of the Czech interoperability project: this can be ObservationLaboratory (CZ) or Media"
 

@@ -83,6 +83,7 @@ Usage: #inline
 * attester[=].party = Reference(Organization/49f2b0d4-0498-4ee1-b03c-812dd89e9ba0)
 * custodian = Reference(Organization/49f2b0d4-0498-4ee1-b03c-812dd89e9ba0)
 * section[+].title = "Aerobní a anaerobní bakteriální kultivace a citlivost"
+* section[=].code = $loinc#18725-2 "Mikrobiologická studie"
 * section[=].code.text = "Aerobní a anaerobní bakteriální kultivace a citlivost"
 * section.section[+].code.text = "Gram Stain"
 * section.section[=].entry = Reference(Observation/40278a69-87aa-470f-a38f-bff1e8aee175) // Inline-Observation-gram-stain
@@ -149,7 +150,7 @@ Usage: #inline
 
 
 Instance: Inline-Observation-gram-stain
-InstanceOf: cz-observation-laboratory
+InstanceOf: cz-observation-result-laboratory
 Usage: #inline
 * id = "333b62b2-47b0-43b5-9745-abec1f0c4656"
 * status = #final
@@ -164,7 +165,7 @@ Usage: #inline
 * hasMember[+] = Reference(Observation/25c5aa73-387d-4b80-9245-8e1adfa470f5) // Inline-Observation-gs-org2
 
 Instance: Inline-Observation-wbc
-InstanceOf: cz-observation-laboratory
+InstanceOf: cz-observation-result-laboratory
 Usage: #inline
 * id = "2b209d21-dc7b-4267-a089-d3b61667945a"
 * status = #final
@@ -177,7 +178,7 @@ Usage: #inline
 * valueCodeableConcept.text = "None observed"
 
 Instance: Inline-Observation-gs-org1
-InstanceOf: cz-observation-laboratory
+InstanceOf: cz-observation-result-laboratory
 Usage: #inline
 * id = "516884c4-8a1f-4e5b-8492-a7dd190f1fb0"
 * status = #final
@@ -191,7 +192,7 @@ Usage: #inline
 * hasMember[+] = Reference(Observation/9018b020-6e21-4afa-9131-5832132092c1) // Inline-Observation-gs-org1-quant
 
 Instance: Inline-Observation-gs-org1-quant
-InstanceOf: cz-observation-laboratory
+InstanceOf: cz-observation-result-laboratory
 Usage: #inline
 * id = "9018b020-6e21-4afa-9131-5832132092c1"
 * status = #final
@@ -205,7 +206,7 @@ Usage: #inline
 * valueCodeableConcept.text = "+"
 
 Instance: Inline-Observation-gs-org2
-InstanceOf: cz-observation-laboratory
+InstanceOf: cz-observation-result-laboratory
 Usage: #inline
 * id = "25c5aa73-387d-4b80-9245-8e1adfa470f5"
 * status = #final
@@ -219,7 +220,7 @@ Usage: #inline
 * hasMember[+] = Reference(Observation/f2e48d96-a153-46b3-a15b-58b5aa761853) // Inline-Observation-gs-org2-quant
 
 Instance: Inline-Observation-gs-org2-quant
-InstanceOf: cz-observation-laboratory
+InstanceOf: cz-observation-result-laboratory
 Usage: #inline
 * id = "f2e48d96-a153-46b3-a15b-58b5aa761853"
 * status = #final
@@ -233,7 +234,7 @@ Usage: #inline
 * valueCodeableConcept.text = "++"
 
 Instance: Inline-Observation-aerobic-culture
-InstanceOf: cz-observation-laboratory
+InstanceOf: cz-observation-result-laboratory
 Usage: #inline
 * id = "297c84f2-28d6-41b5-a270-6f563ef0fdfc"
 * status = #final
@@ -247,7 +248,7 @@ Usage: #inline
 * hasMember[+] = Reference(Observation/424aba49-cc38-4207-b9a0-c484062ecb26) // Inline-Observation-org-id2
 
 Instance: Inline-Observation-org-id1
-InstanceOf: cz-observation-laboratory
+InstanceOf: cz-observation-result-laboratory
 Usage: #inline
 * id = "6b103ad8-1870-45bb-884a-86675ad404f1"
 * status = #final
@@ -262,7 +263,7 @@ Usage: #inline
 * hasMember[+] = Reference(Observation/31747c3c-0a07-4937-9529-378140609e96) // Inline-Observation-org-id1-susc-panel
 
 Instance: Inline-Observation-org-id1-growth
-InstanceOf: cz-observation-laboratory
+InstanceOf: cz-observation-result-laboratory
 Usage: #inline
 * id = "a99f7742-c77d-4650-918b-1e9a6e28cefd"
 * status = #final
@@ -276,7 +277,7 @@ Usage: #inline
 * valueCodeableConcept.text = "++"
 
 Instance: Inline-Observation-org-id1-susc-panel
-InstanceOf: cz-observation-laboratory
+InstanceOf: cz-observation-result-laboratory
 Usage: #inline
 * id = "31747c3c-0a07-4937-9529-378140609e96"
 * status = #final
@@ -292,7 +293,7 @@ Usage: #inline
 * hasMember[+] = Reference(Observation/a4469ca9-d0be-4c58-853a-44cea24484b8)
 
 Instance: Inline-Observation-org-id1-susc-1
-InstanceOf: cz-observation-laboratory
+InstanceOf: cz-observation-result-laboratory
 Usage: #inline
 * id = "652d16a5-91d9-40fb-9c5c-3950683e5d9f"
 * status = #final
@@ -309,7 +310,7 @@ Usage: #inline
 * interpretation = $obs-interpretation#S "Susceptible"
 
 Instance: Inline-Observation-org-id1-susc-2
-InstanceOf: cz-observation-laboratory
+InstanceOf: cz-observation-result-laboratory
 Usage: #inline
 * id = "ccf32a29-d9f5-435a-9c67-e59d7104adff"
 * status = #final
@@ -326,7 +327,7 @@ Usage: #inline
 * interpretation = $obs-interpretation#R "Resistant"
 
 Instance: Inline-Observation-org-id1-susc-3
-InstanceOf: cz-observation-laboratory
+InstanceOf: cz-observation-result-laboratory
 Usage: #inline
 * id = "60f23552-dfb9-4142-95a2-911a41180c78"
 * status = #final
@@ -342,7 +343,7 @@ Usage: #inline
 * interpretation = $obs-interpretation#S "Susceptible"
 
 Instance: Inline-Observation-org-id1-susc-4
-InstanceOf: cz-observation-laboratory
+InstanceOf: cz-observation-result-laboratory
 Usage: #inline
 * id = "848e01c5-1565-4708-92c3-304418a43a40"
 * status = #final
@@ -359,7 +360,7 @@ Usage: #inline
 * interpretation = $obs-interpretation#S "Susceptible"
 
 Instance: Inline-Observation-org-id2
-InstanceOf: cz-observation-laboratory
+InstanceOf: cz-observation-result-laboratory
 Usage: #inline
 * id = "424aba49-cc38-4207-b9a0-c484062ecb26"
 * status = #final
@@ -374,7 +375,7 @@ Usage: #inline
 * hasMember[+] = Reference(Observation/4bc004e5-e77b-46c7-b0d5-3dfa127b48b4) // Inline-Observation-org-id2-susc-panel
 
 Instance: Inline-Observation-org-id2-growth
-InstanceOf: cz-observation-laboratory
+InstanceOf: cz-observation-result-laboratory
 Usage: #inline
 * id = "ed8a917b-2e94-4aa9-b824-5dceee2deb90"
 * status = #final
@@ -387,7 +388,7 @@ Usage: #inline
 * valueCodeableConcept = $sct#263866000 "Scanty growth"
 
 Instance: Inline-Observation-org-id2-susc-panel
-InstanceOf: cz-observation-laboratory
+InstanceOf: cz-observation-result-laboratory
 Usage: #inline
 * id = "4bc004e5-e77b-46c7-b0d5-3dfa127b48b4"
 * status = #final
@@ -403,7 +404,7 @@ Usage: #inline
 * hasMember[+] = Reference(Observation/5601b27d-69a7-44eb-be1a-af632aa54109)
 
 Instance: Inline-Observation-org-id2-susc-1
-InstanceOf: cz-observation-laboratory
+InstanceOf: cz-observation-result-laboratory
 Usage: #inline
 * id = "4edf70e9-b332-4804-a3bf-5d1c14e9f892"
 * status = #final
@@ -420,7 +421,7 @@ Usage: #inline
 * interpretation = $obs-interpretation#R "Resistant"
 
 Instance: Inline-Observation-org-id2-susc-2
-InstanceOf: cz-observation-laboratory
+InstanceOf: cz-observation-result-laboratory
 Usage: #inline
 * id = "20e0ab9e-2ce4-431a-adfb-6a727bd49355"
 * status = #final
@@ -437,7 +438,7 @@ Usage: #inline
 * interpretation = $obs-interpretation#S "Susceptible"
 
 Instance: Inline-Observation-org-id2-susc-3
-InstanceOf: cz-observation-laboratory
+InstanceOf: cz-observation-result-laboratory
 Usage: #inline
 * id = "33db08be-9853-4027-ba51-ce646bea8a76"
 * status = #final
@@ -454,7 +455,7 @@ Usage: #inline
 * interpretation = $obs-interpretation#R "Resistant"
 
 Instance: Inline-Observation-org-id2-susc-4
-InstanceOf: cz-observation-laboratory
+InstanceOf: cz-observation-result-laboratory
 Usage: #inline
 * id = "b4502905-747f-4f96-bfe0-05cc958e6510"
 * status = #final
@@ -471,7 +472,7 @@ Usage: #inline
 * interpretation = $obs-interpretation#S "Susceptible"
 
 Instance: Inline-Observation-anaerobic-culture
-InstanceOf: cz-observation-laboratory
+InstanceOf: cz-observation-result-laboratory
 Usage: #inline
 * id = "e271a348-4f54-4667-86ed-d9ecfb7430f6"
 * status = #final
