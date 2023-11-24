@@ -29,17 +29,31 @@ Description: "Clinical document used to represent a Laboratory Report in the sco
 
 * text ^short = "Narrative text"
 //* insert ReportIdentifierRule
+* identifier
+  * ^short = "Business identifier of the Laboratory Report (setID)"
+  * ^definition = "Identifiers assigned to this Laboratory Report by the performer or other systems. It shall be common to several report versions"
+  * ^constraint.key = "labRpt-id"
+  * ^constraint.severity = #warning
+  * ^constraint.human = "DiagnosticReport.identifier and Composition.identifier shall be aligned"
+
 //* insert ReportStatusRule
-// * category 1.. // add VS binding
+* status ^short = "Status of the Report"
+
 //* insert ReportCategoryRule
+// * category 1.. // add VS binding
+* category only CZ_CodeableConcept
+  * ^short = "Report Category"
+  * ^definition = "Specifies the Report Category: usually Laboratory"
+  * ^constraint.key = "labRpt-category"
+  * ^constraint.severity = #warning
+  * ^constraint.human = "DiagnosticReport.category and Composition.category shall be aligned"
+
+
 // * type = $loinc#11502-2 // change to a VS binding
 //* insert ReportTypeRule ( type )
   // slice the subject tp cover the three cases of human ; non-human and mixed
 //* insert ReportSubjectRule
 //* insert ReportEncounterRule
-
-* identifier ^short = "Business identifier of the Laboratory Report (setID)"
-* status ^short = "Status of the Report"
 
 * type = $loinc#11502-2 // change to a VS binding
 * type only CZ_CodeableConcept
