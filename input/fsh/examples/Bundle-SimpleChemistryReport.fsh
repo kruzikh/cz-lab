@@ -154,8 +154,8 @@ Usage: #inline
 * address[=].type = #physical
 * address[=].text = "Malé náměstí 13a, 150 00, Praha 5"
 * address[=].line[+] = "Malé náměstí 13a"
-* address[=].line[=].extension[Streetname].valueString = "Malé náměstí"
-* address[=].line[=].extension[Housenumber].valueString = "13a"
+* address[=].line[=].extension[streetName].valueString = "Malé náměstí"
+* address[=].line[=].extension[houseNumber].valueString = "13a"
 * address[=].city = "Praha 5"
 * address[=].postalCode = "150 00"
 * address[=].country = "CZ"
@@ -189,8 +189,8 @@ Usage: #inline
 * contact[=].address[=].type = #physical
 * contact[=].address[=].text = "Horná ulica 18, 123 45, Trenčín, Slovensko"
 * contact[=].address[=].line[+] = "Horná ulica 18"
-* contact[=].address[=].line[=].extension[Streetname].valueString = "Horná ulica"
-* contact[=].address[=].line[=].extension[Housenumber].valueString = "18"
+* contact[=].address[=].line[=].extension[streetName].valueString = "Horná ulica"
+* contact[=].address[=].line[=].extension[houseNumber].valueString = "18"
 * contact[=].address[=].city = "Trenčín"
 * contact[=].address[=].postalCode = "123 45"
 * contact[=].address[=].country = "SK"
@@ -277,8 +277,8 @@ Usage: #inline
 * telecom.value = "390 666 0581"
 * telecom.use = #work
 * address[+].line[+] = "Ulice 1600/15"
-* address[=].line[=].extension[Streetname].valueString = "Ulice"
-* address[=].line[=].extension[Housenumber].valueString = "1600/15"
+* address[=].line[=].extension[streetName].valueString = "Ulice"
+* address[=].line[=].extension[houseNumber].valueString = "1600/15"
 * address.city = "Zlín"
 * address.postalCode = "16137"
 * address.country = "CZ"
@@ -332,8 +332,8 @@ Usage: #inline
 * telecom[=].value = "330987986"
 * telecom[=].use = #mobile
 * address[+].line[+] = "Ulice 123"
-* address[=].line[=].extension[Streetname].valueString = "Ulice"
-* address[=].line[=].extension[Housenumber].valueString = "123"
+* address[=].line[=].extension[streetName].valueString = "Ulice"
+* address[=].line[=].extension[houseNumber].valueString = "123"
 * address.city = "Zlín"
 * address.postalCode = "15164"
 * address.country = "CZ"
