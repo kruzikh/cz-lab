@@ -56,7 +56,7 @@ Usage: #inline
 * section[=].entry[+] = Reference(Observation/2c72163e-b741-44a3-aff7-c52f17f7a1ba)
 
 Instance: Inline-Patient-hepatitis-panel
-InstanceOf: CZ_Patient
+InstanceOf: CZ_PatientLab
 Usage: #inline
 * id = "56f19992-e73e-45b5-bbdd-6d9aeb60b15a"
 //* identifier[+].type = $v2-0203#NIIP

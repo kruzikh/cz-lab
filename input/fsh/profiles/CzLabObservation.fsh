@@ -8,7 +8,7 @@ Description: "Extension that adds a comment to Observation.ReferenceRange"
  */
 
 Profile: CZ_ObservationResultLaboratory
-Parent: CZ_ObservationResult
+Parent: $Observation-resultslab-eu-lab
 Id: cz-observation-result-laboratory
 Title: "Observation Laboratory (CZ)"
 Description: """This profile constrains the Observation resource to represent results produced by laboratory tests or panels/studies.
@@ -17,13 +17,13 @@ This observation may represent the result of a simple laboratory test such as he
 """
 
 * ^experimental = false
-* ^url = "https://ncez.mzcr.cz/standards/fhir/ig/lab/StructureDefinition/cz-observation-laboratory"
+//* ^url = "https://ncez.mzcr.cz/standards/fhir/ig/lab/StructureDefinition/cz-observation-laboratory"
 * ^version = "0.0.1"
 * ^status = #draft
 * ^date = "2021-11-08T16:57:45+01:00"
-* ^publisher = "Národní centrum elektronického zdravotnictví"
-* ^contact.telecom.system = #url
-* ^contact.telecom.value = "http://ncez.mzcr.cz"
+//* ^publisher = "Národní centrum elektronického zdravotnictví"
+//* ^contact.telecom.system = #url
+//* ^contact.telecom.value = "http://ncez.mzcr.cz"
 * ^jurisdiction = $iso3166#CZ
 * ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm].valueInteger = 1
 * ^purpose = "This profile constrains the Observation resource to represent a laboratory in vitro diagnostic test or panel/study. In case of a panel/study, the results of the panel appear as sub-observations. In this case this top-level Observation acts as a grouper of all the observations belonging to the panel or study. The top-level observation may carry a conclusion in the value element and or a global interpretation by the producer of the study, in the comment element."
@@ -82,7 +82,7 @@ This observation may represent the result of a simple laboratory test such as he
 * issued MS
 
 // TODO: add standard extension for different performer roles to support all roles in current DASTA standard
-* performer only Reference(CareTeam or RelatedPerson or CZ_Patient or CZ_Organization or CZ_PractitionerRole or CZ_Practitioner)
+* performer only Reference(CareTeam or RelatedPerson or CZ_PatientLab or CZ_Organization or CZ_PractitionerRoleLab or CZ_Practitioner)
 * performer MS
 * performer ^short = "In the initial iteration of the Czech interoperability project: this is Organization (CZ) or Practitioner (CZ)"
 * value[x] MS

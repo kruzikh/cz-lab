@@ -1,31 +1,15 @@
 Profile: CZ_DiagnosticReportLab
-Parent: DiagnosticReport
+Parent: $DiagnosticReport-eu-lab
 Id: cz-diagnostic-report-lab
 Title: "DiagnosticReport: Laboratory Report"
 Description: "Diagnostic Report used to represent an entry of a Laboratory Report, including its context, for the scope of the Czech national interoperability project."
-* ^publisher = "NCEZ"
-* ^copyright = "Národní centrum elektronického zdravotnictví MZČR"
+* ^publisher = "HL7 CZ"
+* ^copyright = "HL7 Czech Republic"
 * . ^short = "Laboratory Report DiagnosticReport"
 * . ^definition = "Laboratory Report DiagnosticReport"
 * extension contains $diagnostic-report-composition-r5 named DiagnosticReportCompositionR5 1..1
 * extension[DiagnosticReportCompositionR5].valueReference only Reference(CZ_CompositionLabReport)
 * extension[DiagnosticReportCompositionR5].valueReference 1..1
-
-/*
-content to be referred...
-Specimen Collection 1.3.6.1.4.1.19376.1.3.1.2
-Specimen Received 1.3.6.1.4.1.19376.1.3.1.3
-Specimen Site 1.3.6.1.4.1.19376.1.3.1.8
-Notification Organizer
-Notifiable Condition
-Case Identifier
-Outbreak Identifier
-Laboratory Isolate Organizer
-Laboratory Battery Organizer
-Laboratory Observation
-Mutimedia Embedded Content
-Annotation Comment
-*/
 
 * basedOn only Reference (CZ_ServiceRequestLab)
 //* basedOn.extension contains DiagnosticReportBasedOnRequisition named basedOn-requisition 0..*
@@ -34,7 +18,7 @@ Annotation Comment
 * code from CZ_LabStudyTypesVS (preferred)
 * code 1..
 * subject 1..
-* subject only Reference (CZ_Patient or Patient or Group or Location or Device or CZ_MedicalDevice)
+* subject only Reference (CZ_PatientLab or Patient or Group or Location or Device or CZ_MedicalDevice)
 * encounter only Reference (Encounter) // profile defined for other scopes to be checked
 * effective[x] ^short = "Clinically relevant time/time-period for report."
 * performer ^short = "Responsible Diagnostic Service." // add reference to the used profiles

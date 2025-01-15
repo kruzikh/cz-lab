@@ -134,7 +134,7 @@ Usage: #inline
 * section.entry = Reference(urn:uuid:763f7902-8103-4d10-8bd1-546a726d43ee)
 
 Instance: Inline-Patient-de17bfd2-8d73-45fa-b0bb-8eb0e463ddb8
-InstanceOf: CZ_Patient
+InstanceOf: CZ_PatientLab
 Usage: #inline
 * id = "de17bfd2-8d73-45fa-b0bb-8eb0e463ddb8"
 * identifier[+].type = $v2-0203#NIIP
@@ -216,7 +216,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:de17bfd2-8d73-45fa-b0bb-8eb0e463ddb8)
 
 Instance: Inline-Instance-for-PractiotionerRole-88868d3e-7ab1-4ee5-983e-b979c4971f5c  // autor 1: role
-InstanceOf: CZ_PractitionerRole
+InstanceOf: CZ_PractitionerRoleLab
 Usage: #inline
 * id = "88868d3e-7ab1-4ee5-983e-b979c4971f5c"
 * practitioner = Reference(urn:uuid:ab279a0b-320f-483b-9a5d-f1f7e8ceacb2)
@@ -250,7 +250,7 @@ Usage: #inline
 
 
 Instance: Inline-Instance-for-PractitionerRole-84b2e517-abc2-4268-975d-b12fa8174d30  // autor 2: role
-InstanceOf: CZ_PractitionerRole
+InstanceOf: CZ_PractitionerRoleLab
 Usage: #inline
 * id = "84b2e517-abc2-4268-975d-b12fa8174d30"
 * practitioner = Reference(urn:uuid:68740937-f732-4ff9-a2e4-bf502d2d125f)
@@ -312,7 +312,7 @@ Usage: #inline
 
 
 Instance: 84476dc3-a732-455f-910e-f2b44428dcc9   // legal attester: role
-InstanceOf: CZ_PractitionerRole
+InstanceOf: CZ_PractitionerRoleLab
 Usage: #inline
 * practitioner = Reference(urn:uuid:8ba59ab8-3cad-47ef-8ba9-72d2fcb934c3)
 
@@ -396,7 +396,7 @@ Usage: #inline
 * method = $sct#70621000052105 "Absorpční spektrofotometrie"
 * subject = Reference(urn:uuid:de17bfd2-8d73-45fa-b0bb-8eb0e463ddb8)
 * effectiveDateTime = "2023-03-27T11:24:26+01:00"
-* performer[+].display = "" // ToDo: consider cardinality
+* performer[+].display = "Eva Laborantka" // ToDo: consider cardinality
 * valueQuantity.value = 60
 * valueQuantity.system = $ucum
 * valueQuantity.code = $ucum#mmol/L

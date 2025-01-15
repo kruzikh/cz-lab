@@ -3,21 +3,21 @@
 # │  used properties are included. For a list of all supported properties and their functions,     │
 # │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
-id: ncez.cz.fhir.lab
-canonical: https://ncez.mzcr.cz/standards/fhir/ig/lab
-name: CzLabImplementationGuide
-title: Czech National Laboratory IG
-description: Czech National Laboratory Implementation Guide
+id: hl7.fhir.cz.lab
+canonical: https://hl7.cz/fhir/lab
+name: HL7CzLaboratoryImplementationGuide
+title: HL7 CZ Laboratory IG
+description: Czech Laboratory Implementation Guide
 status: draft # draft | active | retired | unknown
 version: 0.5.0
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
-copyrightYear: 2022+
+copyrightYear: 2023+
 releaseLabel: ci-build # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
 license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
 jurisdiction: urn:iso:std:iso:3166#CZ "Czechia"
 publisher:
-  name: Národní centrum elektronického zdravotnictví
-  url: https://ncez.mzcr.cz
+  name: HL7 Czech Republic
+  url: https://hl7.cz
   # email: test@example.org
 
 # The dependencies property corresponds to IG.dependsOn. The key is the
@@ -33,8 +33,10 @@ publisher:
 dependencies:
   hl7.fhir.uv.ips: current
 #  hl7.fhir.us.mcode: current
-  ncez.cz.fhir.core: current
+  hl7.fhir.cz.core: current
   hl7.fhir.extensions.r5: 4.0.1
+  hl7.fhir.eu.laboratory: current
+  hl7.fhir.eu.base.r4: current
 #
 # The pages property corresponds to IG.definition.page. SUSHI can
 # auto-generate the page list, but if the author includes pages in
@@ -68,8 +70,9 @@ dependencies:
 #   excludettl: true
 #   validation: [allow-any-extensions, no-broken-links]
 parameters:
-  show-inherited-invariants: false
-  find-other-resources: true
+#  show-inherited-invariants: false
+#  find-other-resources: true
+  produce-jekyll-data: true
 
 # ╭────────────────────────────────────────────menu.xml────────────────────────────────────────────╮
 # │ The menu property will be used to generate the input/menu.xml file. The menu is represented    │
@@ -96,6 +99,9 @@ menu:
 #    FHIR Spec: http://hl7.org/fhir/R4/index.html
 #    Downloads: downloads.html
   Copyright: copyrights.html
+
+instanceOptions:
+  manualSliceOrdering: true
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
 # │  Uncomment the properties below to configure additional properties on the ImplementationGuide  │

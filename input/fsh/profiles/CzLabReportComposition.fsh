@@ -19,9 +19,9 @@ Description: "Czech profile for a composition - to be used when a laboratory rep
 * status MS
 * type MS
 * subject 1.. MS
-* subject only Reference(Resource or CZ_Patient)
+* subject only Reference(Resource or CZ_PatientLab)
 * date MS
-* author only Reference(Device or RelatedPerson or CZ_Practitioner or CZ_PractitionerRole or CZ_Patient or CZ_Organization)
+* author only Reference(Device or RelatedPerson or CZ_Practitioner or CZ_PractitionerRoleLab or CZ_PatientLab or CZ_Organization)
 * author MS
 * author ^short = "Who and/or what authored the Laboratory Report"
 * author ^definition = "Identifies who is responsible for the information in the Laboratory Report, not necessarily who performed laboratory observations."

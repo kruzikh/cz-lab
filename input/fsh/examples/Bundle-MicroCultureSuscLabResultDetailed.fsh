@@ -93,7 +93,7 @@ Usage: #inline
 * section.section[=].entry = Reference(Observation/e271a348-4f54-4667-86ed-d9ecfb7430f6) // Inline-Observation-anaerobic-culture
 
 Instance: Inline-Patient-micro
-InstanceOf: CZ_Patient
+InstanceOf: CZ_PatientLab
 Usage: #inline
 * id = "56f19992-e73e-45b5-bbdd-6d9aeb60b15a"
 //* identifier[+].type = $v2-0203#NIIP

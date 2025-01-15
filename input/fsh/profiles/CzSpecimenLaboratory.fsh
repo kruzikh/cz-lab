@@ -21,9 +21,9 @@ Description: "Czech profile for a specimen in a laboratory report. In some labor
 * type MS
 * type ^definition = "The kind of material that forms the specimen. RECOMMENDED to include."
 * type from CZ_MikrobiologickeVzorkyDASTAVS (preferred)
-* subject only Reference(Group or Device or CZ_MedicalDevice or Substance or Location or CZ_Patient)
+* subject only Reference(Group or Device or CZ_MedicalDevice or Substance or Location or CZ_PatientLab)
 * subject MS
-* subject ^short = "In the initial iteration of the Czech interoperability project, this is CZ_Patient."
+* subject ^short = "In the initial iteration of the Czech interoperability project, this is CZ_PatientLab."
 * receivedTime MS
 * parent only Reference(CZ_SpecimenLab)
 * parent MS
