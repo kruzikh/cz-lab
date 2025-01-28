@@ -1,3 +1,6 @@
+/*
+
+
 Profile: CZ_ObservationResult
 Parent: Observation
 Id: cz-observation-result
@@ -12,13 +15,13 @@ Description: "This profile constrains the Observation resource to represent vari
 * status ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint"
 * status ^extension.valueString = "default: final"
 
-* category only CZ_CodeableConcept
+// (LN) * category only CZ_CodeableConcept
 
-* code only CZ_CodeableConcept
+// (LN) * code only CZ_CodeableConcept
 * code MS
 
 * subject 1.. MS
-* subject only Reference(CZ_PatientLab or Group or CZ_MedicalDevice or Device or Location)
+* subject only Reference(CZ_PatientCore or Group or CZ_MedicalDevice or Device or Location)
 * subject.reference 1.. MS
 
 * effective[x] 1.. MS
@@ -27,7 +30,10 @@ Description: "This profile constrains the Observation resource to represent vari
 * effective[x].extension[data-absent-reason] ^short = "effective[x] absence reason"
 * effective[x].extension[data-absent-reason] ^definition = "Provides a reason why the effectiveTime is missing."
 
-* performer only Reference(CZ_Practitioner or CZ_PractitionerRoleLab or CZ_Organization or CareTeam or CZ_PatientLab or RelatedPerson)
+* performer only Reference(CZ_PractitionerCore or CZ_PractitionerRoleCore or CZ_OrganizationCore or CareTeam or CZ_PatientCore or RelatedPerson)
 * value[x] MS
 * hasMember only Reference(CZ_ObservationResult or QuestionnaireResponse or MolecularSequence)
 * component MS
+
+
+*/

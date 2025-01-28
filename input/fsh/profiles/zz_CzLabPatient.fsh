@@ -1,3 +1,6 @@
+/*
+
+
 Profile: CZ_PatientLab
 Parent: CZ_PatientCore // or your local Patient profile
 Id: cz-patient-lab // or -lab-myorg-jur
@@ -6,3 +9,6 @@ Description: "Tento profil definuje způsob reprezentace pacienta ve FHIR pro ú
 
 // this statement says that this profile conforms with the eu lab one
 * insert ImposeProfile($Patient-eu-core)
+
+
+*/

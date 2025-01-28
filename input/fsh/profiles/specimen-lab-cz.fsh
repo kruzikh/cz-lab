@@ -13,7 +13,6 @@ Description: "Czech profile for a specimen in a laboratory report. In some labor
 * ^jurisdiction = $iso3166#CZ //$m49.htm#001
 //* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm].valueInteger = 1
 
-
 * text.status = #empty
 * identifier MS
 * identifier ^definition = "Business identifier for specimen is RECOMMENDED to include when available."
@@ -21,7 +20,7 @@ Description: "Czech profile for a specimen in a laboratory report. In some labor
 * type MS
 * type ^definition = "The kind of material that forms the specimen. RECOMMENDED to include."
 * type from CZ_MikrobiologickeVzorkyDASTAVS (preferred)
-* subject only Reference(Group or Device or CZ_MedicalDevice or Substance or Location or CZ_PatientLab)
+* subject only Reference(Group or Device or CZ_MedicalDevice or Substance or Location or CZ_PatientCore)
 * subject MS
 * subject ^short = "In the initial iteration of the Czech interoperability project, this is CZ_PatientLab."
 * receivedTime MS

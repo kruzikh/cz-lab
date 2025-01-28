@@ -8,7 +8,7 @@ Description: "Extension that adds a comment to Observation.ReferenceRange"
  */
 
 Profile: CZ_ObservationResultLaboratory
-Parent: $Observation-resultslab-eu-lab
+Parent: Observation
 Id: cz-observation-result-laboratory
 Title: "Observation Laboratory (CZ)"
 Description: """This profile constrains the Observation resource to represent results produced by laboratory tests or panels/studies.
@@ -43,15 +43,15 @@ This observation may represent the result of a simple laboratory test such as he
 
 * category ^definition = "A code that classifies the general type of observation being made. In this profile, fixed to \"laboratory\"."
 * category ^comment = "\"laboratory\" includes laboratory medicine and pathology"
-* category only CZ_CodeableConcept
+// (LN) * category only CZ_CodeableConcept
 * category ^slicing.discriminator.type = #pattern
 * category ^slicing.discriminator.path = "$this"
 * category ^slicing.rules = #open
 * category ^definition = "A code that classifies the general type of observation being made. In this profile, fixed to \"laboratory\"."
 * category ^comment = "\"laboratory\" includes laboratory medicine and pathology"
-* category contains laboratory 1..1 MS
-* category[laboratory] only CZ_CodeableConcept
-* category[laboratory] = $observation-category#laboratory
+// (LN) * category contains laboratory 1..1 MS
+// (LN) * category[laboratory] only CZ_CodeableConcept
+// (LN) * category[laboratory] = $observation-category#laboratory
 
 /*
 * category.coding MS
@@ -82,7 +82,7 @@ This observation may represent the result of a simple laboratory test such as he
 * issued MS
 
 // TODO: add standard extension for different performer roles to support all roles in current DASTA standard
-* performer only Reference(CareTeam or RelatedPerson or CZ_PatientLab or CZ_Organization or CZ_PractitionerRoleLab or CZ_Practitioner)
+* performer only Reference(CareTeam or RelatedPerson or CZ_PatientCore or CZ_OrganizationCore or CZ_PractitionerRoleCore or CZ_PractitionerCore)
 * performer MS
 * performer ^short = "In the initial iteration of the Czech interoperability project: this is Organization (CZ) or Practitioner (CZ)"
 * value[x] MS
