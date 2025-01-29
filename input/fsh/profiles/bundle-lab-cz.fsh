@@ -4,15 +4,29 @@ Id: cz-bundle-lab
 Title: "Bundle - Laboratory Result Report"
 Description: "This profile represents the constraints applied to the Bundle resource by the Czech national laboratory report (HDR) FHIR Implementation Guide."
 * ^purpose = "Laboratory result report bundle is an electronic health record extract containing results of laboratory testing of specimens from a subject of care, comprising at least the required elements of the lab dataset."
-//* obeys bdl-ips-1
+* ^publisher = "HL7 CZ"
+* ^copyright = "HL7 CZ"
 * . ^short = "Laboratory Result Report Bundle"
 * . ^definition = "Laboratory Result Report Bundle. \r\nA container for a collection of resources in the laboratory result document."
 
-* entry
-  * ^short = "Entry resource in the laboratory result report bundle"
-  * ^definition = "An entry resource included in the laboratory result report document bundle resource."
-  * ^comment = "Must contain the Lab Composition as the first entry (only a single Composition resource instance may be included).  Additional constraints are specified in the Lab Composition profile."
+* insert SetFmmandStatusRule ( 0, draft )
 
+// TODO: invariants?
+
+* identifier ^short = "Business identifier for this Laboratory Report"
+* identifier 1..
+* type = #document
+* timestamp 1..
+* total ..0
+* link ..0
+* entry 1..
+  * link ..0
+  * fullUrl 1..1
+  * resource 1..
+  * search ..0
+  * request ..0
+  * response ..0
+* signature ^short = "Digital Signature of this report"
 
 * entry ^slicing.discriminator[0].type = #type
 * entry ^slicing.discriminator[0].path = "resource"
@@ -46,9 +60,17 @@ Description: "This profile represents the constraints applied to the Bundle reso
 
 * entry contains practitionerRole 0..*
 * entry[practitionerRole].resource only CZ_PractitionerRoleCore
+
+//* entry contains bodyStructure 0..*
 //* entry[bodyStructure].resource only BodyStructureEuLab
+
+//* entry contains encounter 0..*
 //* entry[encounter].resource only Encounter
+
+//* entry contains location 0..*
 //* entry[location].resource only Location
+
+//* entry contains provenance 0..*
 //* entry[provenance].resource only Provenance
 
 //* entry contains coverage 0..*
@@ -58,21 +80,18 @@ Description: "This profile represents the constraints applied to the Bundle reso
 * entry[device].resource only CZ_DeviceObserver
 
 //* entry contains procedure 0..
-// (LN)  * entry[procedure].resource only ProcedureUvIps // CZ 
+//* entry[procedure].resource only ProcedureUvIps // CZ 
 
-* entry contains condition 0..*
-* entry[condition].resource 1..
-* entry[condition].resource only ConditionUvIps // CZ
+//* entry contains condition 0..*
+//* entry[condition].resource 1..
+//* entry[condition].resource only ConditionUvIps // CZ
 
-/* * entry contains media 0..*
+//* entry contains media 0..*
 //* entry[media].resource 1..
-* entry[media].resource only MediaObservationUvIps  // CZ
- */
+//* entry[media].resource only MediaObservationUvIps  // CZ
 
-/*
-* entry contains medication 0..*
-* entry[medication].resource only CZ_Medication  // CZ
+//* entry contains medication 0..*
+//* entry[medication].resource only CZ_Medication  // CZ
 
-* entry contains medicationstatement 0..*
-* entry[medicationstatement].resource only CZ_MedicationStatement
-*/
+//* entry contains medicationstatement 0..*
+//* entry[medicationstatement].resource only CZ_MedicationStatement

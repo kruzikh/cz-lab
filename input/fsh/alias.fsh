@@ -52,3 +52,4 @@ Alias: $ServiceRequest-eu-lab = http://hl7.eu/fhir/laboratory/StructureDefinitio
 
 //----------- Extensions
 Alias: $diagnostic-report-composition-r5 = http://hl7.org/fhir/5.0/StructureDefinition/extension-DiagnosticReport.composition
+Alias: $information-recipient = http://hl7.eu/fhir/StructureDefinition/information-recipient

@@ -3,31 +3,34 @@ Parent: $clinicaldocument
 Id: cz-composition-lab-report
 Title: "Composition: Laboratory Report"
 Description: "Clinical document used to represent a Laboratory Report in the scope of the Czech national interoperability project."
-* insert SetFmmandStatusRule ( 0, draft )
 * ^publisher = "HL7 CZ"
 * ^copyright = "HL7 CZ"
+* ^contact.telecom.system = #url
+* ^contact.telecom.value = "http://ncez.mczr.cz"
 * . ^short = "Laboratory Report composition"
-* . ^definition = "Laboratory Report composition.
-\r\nA composition is a set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. \r\nWhile a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained."
+* . ^definition = "Laboratory Report composition.\r\nA composition is a set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. \r\nWhile a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained."
+
+* insert SetFmmandStatusRule ( 0, draft )
+
+
 // what to do with the composition text ?
 // should we make it 0.. ?
 // or have text repeated here and in the sections ?
 
-* ^version = "0.0.1"
-* ^status = #draft
-* ^date = "2022-08-28T16:06:00+01:00"
-* ^publisher = "Národní centrum elektronického zdravotnictví"
-* ^contact.telecom.system = #url
-* ^contact.telecom.value = "http://ncez.mczr.cz"
-* ^jurisdiction = $iso3166#CZ
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm].valueInteger = 1
+// TODO
+//* extension contains CompositionBasedOnOrderOrRequisition named basedOn-order-or-requisition 0..*
+//* extension[based-on-order-or-requisition].valueReference only Reference(CZ_ServiceRequestLab)
 
+* extension contains $information-recipient named information-recipient 0..*
+* extension[information-recipient].valueReference only Reference(CZ_PractitionerCore or CZ_DeviceObserver or CZ_PatientCore or RelatedPerson or CZ_PractitionerRoleCore or CZ_OrganizationCore)
 
+* extension contains DiagnosticReportReference named diagnosticReport-reference 0..1
+* extension[diagnosticReport-reference].valueReference only Reference(CZ_DiagnosticReportLab)
+* extension[diagnosticReport-reference].valueReference 1..1
+* extension[diagnosticReport-reference].valueReference.reference 1..
 
-// (LN) * extension[based-on-order-or-requisition].valueReference only Reference(CZ_ServiceRequestLab)
-// (LN) * extension[information-recipient].valueReference only Reference(CZ_PractitionerCore or CZ_Device or CZ_PatientCore or RelatedPerson or CZ_PractitionerRoleCore or CZ_OrganizationCore)
-// (LN) * extension[diagnosticReport-reference].valueReference only Reference(CZ_DiagnosticReportLab)
-
+  * ^comment = """Added to the FHIR R4 guide to strictly conform with the R4 rules for document bundle resources inclusion.
+  Using this extension implies to accept a circular reference Composition to/from  DiagnosticReport"""
 
 /*  TO DO Header
 - add optional data enterer
