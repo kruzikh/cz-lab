@@ -9,9 +9,11 @@ Description: "This profile represents the constraints applied to the Bundle reso
 * . ^short = "Laboratory Result Report Bundle"
 * . ^definition = "Laboratory Result Report Bundle. \r\nA container for a collection of resources in the laboratory result document."
 
+* insert ImposeProfile($Bundle-eu-lab)
+
 * insert SetFmmandStatusRule ( 0, draft )
 
-// TODO: invariants?
+// TODO: invariants
 
 * identifier ^short = "Business identifier for this Laboratory Report"
 * identifier 1..
@@ -41,7 +43,7 @@ Description: "This profile represents the constraints applied to the Bundle reso
 * entry[diagnosticReport].resource only CZ_DiagnosticReportLab
 
 * entry contains patient 0..1
-* entry[patient].resource only CZ_PatientCore or CZ_PatientAnimal
+* entry[patient].resource only CZ_PatientLab or CZ_PatientAnimalLab
 
 * entry contains observation 0..*
 * entry[observation].resource only CZ_ObservationResultLaboratory

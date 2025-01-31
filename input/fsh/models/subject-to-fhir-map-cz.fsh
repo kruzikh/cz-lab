@@ -128,7 +128,6 @@ Usage: #definition
 * group[=].element[=].target.equivalence = #equivalent		
 
 
-
 * group[=].element[+].code = #Subject.legalRepresent					
 * group[=].element[=].display = "A.1.2.4 Legal representatives and other contact persons"					
 * group[=].element[=].target.code = #Patient					
