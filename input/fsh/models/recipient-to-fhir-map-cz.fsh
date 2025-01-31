@@ -1,7 +1,7 @@
 // -------------------------------------------------------------------------------					
-//  Concept Model. File: 					recipient-to-fhir-map.fsh
+//  Concept Model. File: 					recipient-to-fhir-map-cz.fsh
 // -------------------------------------------------------------------------------					
-Instance: recipient2FHIR-eu-lab					
+Instance: recipient2FHIR-cz-lab					
 InstanceOf: ConceptMap					
 Usage: #definition					
 * insert SetFmmandStatusRuleInstance( 2, informative)					

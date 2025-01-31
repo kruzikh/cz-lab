@@ -38,7 +38,7 @@ If different, 'physiological gender' should be communicated elsewhere
 - Preferred system(s): HL7 Role"""
 * addressTelecom.legalRepresent.relationToSubject 0..1 CodeableConcept "A.1.2.4.2 Relationship to the patient" """Relationship of the person to the patient (father, son, daughter, etc.).
 - Preferred system(s): eHDSIPersonalRelationship"""
-* addressTelecom.legalRepresent.Identifier 0..* Identifier  "A.1.2.4.3 Person identifier" """An identifier of the patient that is unique within a defined scope (birth number, passport number, etc.). Multiple identifiers could be provided. """
+* addressTelecom.legalRepresent.identifier 0..* Identifier  "A.1.2.4.3 Person identifier" """An identifier of the patient that is unique within a defined scope (birth number, passport number, etc.). Multiple identifiers could be provided. """
 * addressTelecom.legalRepresent.givenName 1..* string "A.1.2.4.4 Given name" """The given name/first name of the person (also known as forename or first name)."""
 * addressTelecom.legalRepresent.familyName 1..* string "A.1.2.4.5 Family name/surname" """The family name/surname/last name of the person."""
 * addressTelecom.legalRepresent.address 0..1 Address "A.1.2.4.6 Contact person address" """Mailing, home and/or office address. Addresses are always a sequence of parts of an address (e.g. address line, country, zip code, city), although the format of the postal address may vary depending on the country. The address may contain information about the type of address; if this attribute is not present, it is assumed to be a default address usable for any purpose."""

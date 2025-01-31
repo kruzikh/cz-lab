@@ -1,7 +1,7 @@
 // -------------------------------------------------------------------------------					
-//  Concept Model. File: 					validator-to-fhir-map.fsh
+//  Concept Model. File: 					validator-to-fhir-map-cz.fsh
 // -------------------------------------------------------------------------------					
-Instance: validator2FHIR-eu-lab					
+Instance: validator2FHIR-cz-lab					
 InstanceOf: ConceptMap					
 Usage: #definition					
 * insert SetFmmandStatusRuleInstance( 2, informative)					

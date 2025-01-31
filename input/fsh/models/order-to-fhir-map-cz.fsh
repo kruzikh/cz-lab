@@ -1,7 +1,7 @@
 // -------------------------------------------------------------------------------					
-//  Concept Model. File: 					order-to-fhir-map.fsh
+//  Concept Model. File: 					order-to-fhir-map-cz.fsh
 // -------------------------------------------------------------------------------					
-Instance: order2FHIR-eu-lab					
+Instance: order2FHIR-cz-lab					
 InstanceOf: ConceptMap					
 Usage: #definition					
 * insert SetFmmandStatusRuleInstance( 2, informative)					

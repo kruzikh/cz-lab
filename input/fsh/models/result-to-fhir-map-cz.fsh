@@ -1,7 +1,7 @@
 // -------------------------------------------------------------------------------					
-//  Concept Model. File: 					result-to-fhir-map.fsh
+//  Concept Model. File: 					result-to-fhir-map-cz.fsh
 // -------------------------------------------------------------------------------					
-Instance: result2FHIR-eu-lab					
+Instance: result2FHIR-cz-lab					
 InstanceOf: ConceptMap					
 Usage: #definition					
 * insert SetFmmandStatusRuleInstance( 2, informative)					

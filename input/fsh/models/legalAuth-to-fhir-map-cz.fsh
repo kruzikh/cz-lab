@@ -1,7 +1,7 @@
 // -------------------------------------------------------------------------------					
-//  Concept Model. File: 					legalAuth-to-fhir-map.fsh
+//  Concept Model. File: 					legalAuth-to-fhir-map-cz.fsh
 // -------------------------------------------------------------------------------					
-Instance: legalAuth2FHIR-eu-lab					
+Instance: legalAuth2FHIR-cz-lab					
 InstanceOf: ConceptMap					
 Usage: #definition					
 * insert SetFmmandStatusRuleInstance( 2, informative)					

@@ -32,117 +32,123 @@ Description: "Clinical document used to represent a Laboratory Report in the sco
   * ^comment = """Added to the FHIR R4 guide to strictly conform with the R4 rules for document bundle resources inclusion.
   Using this extension implies to accept a circular reference Composition to/from  DiagnosticReport"""
 
-/*  TO DO Header
-- add optional data enterer
-- defiend rules for attester to distiguish Authenticators and Legal Auth
-- ordering provider mapped into the order details
-- add Lab DocumentationOf.serviceEvent details
-- ComponentOf.encounter define details in Encounter profile
-*/
+* text ^short = "Narrative text"
 
-// (LN) * category only CZ_CodeableConcept
-//  * ^short = "Report Category"
-//  * ^definition = "Specifies the Report Category: usually Laboratory"
-//  * ^comment = "DiagnosticReport.category and Composition.category shall be aligned"
-// (LN)   * ^constraint.key = "labRpt-category"
-// (LN)   * ^constraint.severity = #warning
-// (LN)   * ^constraint.human = "DiagnosticReport.category and Composition.category shall be aligned"
+* insert ReportIdentifierRule
+* insert ReportStatusRule
+* insert ReportCategoryRule // HK: composition category seems to be related to the CDA Document Class.
+                            // In case of lab report, only one value is relevant for this purpose, LOINC 26436-6 	Laboratory Studies (set)
+                            // We might discuss if other categorization purposes would be useful or not.
+/* * category = $loinc#26436-6 "Laboratory Studies (set)" */
 
-//* category ^slicing.discriminator.type = #pattern
-//* category ^slicing.discriminator.path = "$this"
-//* category ^slicing.rules = #open
-//* category ^definition = "A code that classifies this laboratory report. Two basic categories has been selected in this guide: laboratory specialty and Study type. Laboratory specialty is characteristic of the laboratory that produced the test result while Study type is an arbitrary classificion of the test type."
-// (LN) * category contains studyType 0..*
-// (LN) * category[studyType] only CZ_CodeableConcept
-//* category[studyType] from LabStudyTypesEuVs
-//* category[studyType]
-//  * ^short = "The way of grouping of the test results into clinically meaningful domains (e.g. hematology study, microbiology study, etc.)"
-//  * ^definition = "Laboratory services, i.e., results of tests performed, could be characterized using typology of services, commonly called study types. Study type could be seen as an attribute or grouping mechanism that assigns a common clinical sense to certain types of laboratory test results., e.g., Hemoglobin, Platelet count, etc. belongs to 'Hematology study'."
-//  * ^comment = "In comparison to the laboratory specialty which is an attribute of laboratory, study type is a categorization of laboratory service. It needs to be mentioned that classification of test to study types in not standardized."
+* insert ReportTypeRule ( type ) // fixed LOINC code for all types of reports but allow also lab specialty to be present
 
-// "The way of grouping of the test results into clinically meaningful domains (e.g. hematology study, microbiology study, etc.)"
+  // slice the subject tp cover the three cases of human ; non-human and mixed
+* insert ReportSubjectRule
+* insert ReportEncounterRule
+* author 1..*
+  * ^short = "Who and/or what authored the Laboratory Report"
+  * ^definition = "Identifies who is responsible for the information in the Laboratory Report, not necessarily who typed it in."
+  * insert ReportAuthorRule
+  /* * obeys labRpt-author */
 
-//* category contains specialty 0..*
-// (LN) * category[specialty] only CZ_CodeableConcept
-//* category[specialty] from LabSpecialtyEuVs
-//* category[specialty]
-//  * ^short = "The clinical domain of the laboratory performing the observation (e.g. microbiology, toxicology, chemistry)"
-//  * ^definition = "Laboratory specialty is an attribute of any laboratory setting representing professional qualification of the laboratory to execute certain kind of laboratory tests."
-//  * ^comment = "Specialty could be used as parameter for searching/querying of laboratory test results."
-
-//* type = $loinc#11502-2 // change to a VS binding
-// (LN) * type only CZ_CodeableConcept
-//  * ^short = "Kind of composition (\"Laboratory Report\")"
-//  * ^definition = "Specifies that this composition refer to a Laboratory Report"
-//  * ^comment = "At least one DiagnosticReport.code.coding and Composition.type.coding SHALL be equal"
-
-// ToDo: Review binding and value set
-//* type from CZ_LaboratoryTypesVS
-
-* subject only Reference(CZ_PatientCore or Group or Location or Device or CZ_MedicalDevice)
-//* subject 1..1
-
-* attester
-  * party only Reference(CZ_PatientCore or RelatedPerson or CZ_PractitionerCore or CZ_PractitionerRoleCore or CZ_OrganizationCore)
-
-/*
 * attester 0.. // RH - should attester be 1.. or 0..? - since author is also required?
+  * party only Reference(CZ_PatientCore or RelatedPerson or CZ_PractitionerCore or CZ_PractitionerRoleCore or CZ_OrganizationCore)
   * ^short = "Attests the report accuracy"
   * mode ^short = "The type of attestation"
   * time ^short = "When the report was attested by the party"
   * party
     * ^short = "Who attested the report"
     * ^comment = "For a Laboratory Report it is usually non expected that the attester would be a Patient or a RealtedPerson"
-*/
+
 * custodian only Reference(CZ_OrganizationCore)
 
-* title
-  * ^short = "Laboratorní nález"
-  * ^definition = "Official human-readable label for the composition.\r\n\r\nFor this document should be \"Laboratorní nález\" or \"Laboratorní souhrn\""
+* event
+  * ^short = "The laboratory service(s) being documented"
+  * code ^short =	"Code(s) that apply to the laboratory service(s) being documented"
+  * period ^short = "Period of time covered by the documentation"
+  * detail ^short = "The laboratory service(s) being documented"
+
+* title 1..
+  * ^short = "Laboratory Report"
+  * ^definition = "Official human-readable label for the composition.\r\n\r\nFor this document should be \"Laboratory Report\" or any equivalent translation"
+
+
 
 // ServiceRequest and/or RequestGroup
 
+/*  IS THE SLICE NEEDED IN THIS CASE ?
+// check with the XDlab structure */
 
-//* section.title 1..
-//* section.code 1..
-//  (LN) * section.code only CZ_CodeableConcept
+* section 1..
+  * ^slicing.discriminator[+].type = #exists
+  * ^slicing.discriminator[=].path = "$this.section"
+  * ^slicing.discriminator[+].type = #exists
+  * ^slicing.discriminator[=].path = "$this.entry"
+/*   * ^slicing.discriminator[+].type = #type
+  * ^slicing.discriminator[=].path = "$this.entry.resolve()" */
+  // GC $this.code has a preferred binding, how can work ?
+/*   * ^slicing.discriminator[+].type = #pattern
+  * ^slicing.discriminator[=].path = "$this.code" */
+  * ^slicing.ordered = false
+  * ^slicing.rules = #open
+  * ^definition = """The \"body\" of the report is organized as a tree of up to two levels of sections: top level sections represent laboratory specialties. A top level section SHALL contain either one text block carrying all the text results produced for this specialty along with Laboratory Data Entries or a set of Laboratory Report Item Sections. In the first case the specialty section happens to also be a leaf section. In the latter case, each (second level) leaf section contained in the (top level) specialty section represents a Report Item: i.e., a battery, a specimen study (especially in microbiology), or an individual test. In addition, any leaf section SHALL contain a Laboratory Data Entries containing the observations of that section in a machine-readable format."""
+
+/*
+Variant 2: Text and Entry - With this option, the Laboratory Specialty Section text SHALL be present and not blank. This narrative block SHALL present to the human reader, all the observations produced for this Specialty, using the various structures available in the CDA Narrative Block schema (NarrativeBlock.xsd): tables, lists, paragraphs, hyperlinks, footnotes, references to attached or embedded multimedia objects. The narrative block is fully derived from the entry containing the machine-readable result data. Additionally, a single Laboratory Report Data Processing Entry SHALL be present with attribute typeCode=\"DRIV\". This entry contains the machine-readable result data from which the narrative block of this section is derived.""" */
+
+
+// --------------------------------------
+// Common rules for all the sections
+// ---------------------------------
+
+* insert SectionCommonRules
+/* * section.title 1..
+* section.code 1..
+* section.code only $CodeableConcept-uv-ips */
 
 // -------------------------------------
 // Single section  0 .. 1
 // -------------------------------------
+* section contains lab-no-subsections ..* // check if ..1 or ..*
+* section[lab-no-subsections]
+  * ^short = "Variant 1: CZ Laboratory Report section with entries and no sub-sections"
+  * ^definition = """Variant 1: With this option, all laboratory report data entries are provided in the top level sections and no sub-sections are allowed."""
+  * insert SectionElementsRules
+/*   * code from LabStudyTypesEuVs (preferred)
+  * text ^short = "Text summary of the section, for human interpretation."
+  * entry only Reference (ObservationResultsLaboratoryEu or DiagnosticReport)
+  * entry 1..
+  * section ..0 */
 
-//* section contains lab-no-subsections ..* // check if ..1 or ..*
-// (LN) * section[lab-no-subsections]
-  //* ^short = "Variant 1: Laboratory Report section with text and entry"
-  //* ^definition = """Variant 1: With this option, the Section text SHALL be present and not blank. This narrative block SHALL present to the human reader, all the observations produced for this Specialty, using the various structures available for the FHIR  Narrative. The narrative block should be fully derived from the entry containing the machine-readable result data. Additionally, Laboratory Report Data Entries SHALL be present. This entry contains the machine-readable result data from which the narrative block of this section should be derived."""
-// (LN)   * code from CZ_LabStudyTypesVS (preferred)
-  //* text ^short = "Text summary of the section, for human interpretation."
-// (LN)   * entry only Reference (CZ_ObservationResultLaboratory)
 
 // -------------------------------------
 // Structured sections  0 .. 1
 // -------------------------------------
-//* section contains lab-subsections ..* // check if ..1 or ..*
-// (LN) * section[lab-subsections]
-  //* ^short = "Variant 2: EU Laboratory Report section with one to many subsections Laboratory Report Item"
-  //* ^definition = """Varient 2: With this option, this Laboratory Specialty Section SHALL contain NEITHER a top level text NOR entry elements. Each Report Item is contained in a corresponding Laboratory Report Item Section which contains the Lab Report Data Entry."""
-// (LN)  * code only CZ_CodeableConcept
-// (LN)   * code from CZ_LabStudyTypesVS (preferred)
-  //* text 0..0
-  //* entry 0..0
-// (LN)   * section 1..
-    //* code 1..
-    // (LN) * code only CZ_CodeableConcept
- // (LN)    * code from CZ_LabStudyTypesVS (preferred)
-    //* text ^short = "Text summary of the section, for human interpretation."
-    //* entry 1..
- // (LN)    * entry only Reference (CZ_ObservationResultLaboratory)
-    //* section 0..0
+* section contains lab-subsections ..* // check if ..1 or ..*
+* section[lab-subsections]
+  * ^short = "Variant 2: CZ Laboratory Report section with one to many subsections Laboratory Report Item"
+  * ^definition = """Variant 2: With this option, this top level section doesn't include NEITHER a top level text NOR entry elements. Each Report Item is contained in a corresponding sub-sections which contains the Lab Report Data Entry."""
+  * code only $CodeableConcept-uv-ips
+  * code from CZ_LabStudyTypesVS (preferred)
+  * text 0..0
+  * entry 0..0
+  * insert SectionCommonRules
+  * section 1..
+/*     * code 1..
+    * code only $CodeableConcept-uv-ips */
+    * insert SectionElementsRules
+    * code from CZ_LabStudyTypesVS (preferred)
+/*        * text ^short = "Text summary of the section, for human interpretation."
+    * entry 1..
+    * entry only Reference (ObservationResultsLaboratoryEu)
+    * section 0..0 */
+
 
 // -------------------------------------
 // Annotation section  0 .. 1
 // -------------------------------------
-/*
+
 * section contains annotations ..* // check if ..1 or ..*
 * section[annotations]
   * ^short = "Annotation comment"
@@ -152,7 +158,18 @@ Examples:
 Suggestion: This result should be evaluated in relation to the patient's medical history and clinical condition.
 Technical note: A list of accredited examination(s) is available at www.laboratory.com. """
 
-  * code = http://loinc.org#48767-8 (exactly) // add binding
+  * code = http://loinc.org#48767-8
   * text 1..
-  * section ..0
+  * entry 0..0
+  * section 0..0
+
+
+
+
+/*  TO DO Header
+- add optional data enterer
+- defiend rules for attester to distiguish Authenticators and Legal Auth
+- ordering provider mapped into the order details
+- add Lab DocumentationOf.serviceEvent details
+- ComponentOf.encounter define details in Encounter profile
 */

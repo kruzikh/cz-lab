@@ -1,7 +1,7 @@
 // -------------------------------------------------------------------------------					
-//  Concept Model. File: 					payer-to-fhir-map.fsh
+//  Concept Model. File: 					payer-to-fhir-map-cz.fsh
 // -------------------------------------------------------------------------------					
-Instance: payer2FHIR-eu-lab					
+Instance: payer2FHIR-cz-lab					
 InstanceOf: ConceptMap					
 Usage: #definition					
 * insert SetFmmandStatusRuleInstance( 2, informative)					

@@ -1,7 +1,7 @@
 // -------------------------------------------------------------------------------					
-//  Concept Model. File: 					labRpt-to-fhir-map.fsh
+//  Concept Model. File: 					labRpt-to-fhir-map-cz.fsh
 // -------------------------------------------------------------------------------					
-Instance: labRpt2FHIR-eu-lab					
+Instance: labRpt2FHIR-cz-lab					
 InstanceOf: ConceptMap					
 Usage: #definition					
 * insert SetFmmandStatusRuleInstance( 2, informative)					
