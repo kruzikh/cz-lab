@@ -1,7 +1,7 @@
 // -------------------------------------------------------------------------------				
 //  Logical Model				lab-author-cz.fsh
 // -------------------------------------------------------------------------------				
-Logical: AuthorLabEhn				
+Logical: AuthorLabEhnCz				
 Id: Author				
 Title: "A.1.5 - Author"				
 Description:  """Author (by whom the Laboratory result report or a subset of its results was authored). Section A1.5 of the eHN guideline."""				

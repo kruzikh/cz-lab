@@ -1,7 +1,7 @@
 // -------------------------------------------------------------------------------				
-//  Logical Model				lab-order.fsh
+//  Logical Model				lab-order-cz.fsh
 // -------------------------------------------------------------------------------				
-Logical: OrderLabEhn				
+Logical: OrderLabEhnCz				
 Id: Order				
 Title: "A2, A3 - Order"				
 Description:  """Order information and reason. Sections A2 and A3 of the eHN guideline."""				

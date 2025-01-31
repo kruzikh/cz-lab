@@ -1,7 +1,7 @@
 // -------------------------------------------------------------------------------				
 //  Logical Model				lab-validator-cz.fsh
 // -------------------------------------------------------------------------------				
-Logical: ValidatorLabEhn				
+Logical: ValidatorLabEhnCz				
 Id: Validator				
 Title: "A.1.6 - Result validator"				
 Description:  """Result validator. Section A1.6 of the eHN guideline."""				

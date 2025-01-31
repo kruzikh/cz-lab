@@ -18,7 +18,7 @@ Description: "ServiceRequest used to represent a Laboratory Order for the scope 
 * category 1..
 * code 1..
 * subject 1..
-* subject only Reference(CZ_PatientLab or Patient or Group or Location or Device or CZ_MedicalDevice)
+* subject only Reference(CZ_PatientCore or Patient or Group or Location or Device or CZ_MedicalDevice)
 * requisition ^short = "Composite Request ID."
 * specimen	only Reference(CZ_SpecimenLab)
   * ^short = "Must be present, if order is request for test" // Check....

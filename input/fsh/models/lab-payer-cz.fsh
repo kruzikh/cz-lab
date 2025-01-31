@@ -1,7 +1,7 @@
 // -------------------------------------------------------------------------------				
 //  Logical Model				lab-payer-cz.fsh
 // -------------------------------------------------------------------------------				
-Logical: PayerLabEhn				
+Logical: PayerLabEhnCz				
 Id: Payer				
 Title: "A.1.3 - Health insurance and payment information"				
 Description:  """Health insurance and payment information.  Section A1.3 of the eHN guideline."""				

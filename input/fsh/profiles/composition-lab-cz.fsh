@@ -24,7 +24,7 @@ Description: "Clinical document used to represent a Laboratory Report in the sco
 //* extension[based-on-order-or-requisition].valueReference only Reference(CZ_ServiceRequestLab)
 
 * extension contains $information-recipient named information-recipient 0..*
-* extension[information-recipient].valueReference only Reference(CZ_PractitionerCore or CZ_DeviceObserver or CZ_PatientLab or RelatedPerson or CZ_PractitionerRoleCore or CZ_OrganizationCore)
+* extension[information-recipient].valueReference only Reference(CZ_PractitionerCore or CZ_DeviceObserver or CZ_PatientCore or RelatedPerson or CZ_PractitionerRoleCore or CZ_OrganizationCore)
 
 * extension contains DiagnosticReportReference named diagnosticReport-reference 0..1
 * extension[diagnosticReport-reference].valueReference only Reference(CZ_DiagnosticReportLab)
@@ -55,7 +55,7 @@ Description: "Clinical document used to represent a Laboratory Report in the sco
   /* * obeys labRpt-author */
 
 * attester 0.. // RH - should attester be 1.. or 0..? - since author is also required?
-  * party only Reference(CZ_PatientLab or RelatedPerson or CZ_PractitionerCore or CZ_PractitionerRoleCore or CZ_OrganizationCore)
+  * party only Reference(CZ_PatientCore or RelatedPerson or CZ_PractitionerCore or CZ_PractitionerRoleCore or CZ_OrganizationCore)
   * ^short = "Attests the report accuracy"
   * mode ^short = "The type of attestation"
   * time ^short = "When the report was attested by the party"

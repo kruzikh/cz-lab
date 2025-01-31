@@ -11,12 +11,12 @@ Usage: #definition
 * experimental = true					
 * description = "eHN Result Model to this guide Map"					
 * purpose = "It shows how the Result data set defined by the EU eHN guidelines is mapped into this guide"					
-* sourceUri = "http://hl7.eu/fhir/laboratory/StructureDefinition/Result"					
-* targetUri = "http://hl7.eu/fhir/laboratory/StructureDefinition/Bundle-eu-lab"					
+* sourceUri = "https://hl7.cz/fhir/lab/StructureDefinition/Result"					
+* targetUri = "https://hl7.cz/fhir/lab/StructureDefinition/cz-bundle-lab"					
 					
 					
-* group[+].source = "http://hl7.eu/fhir/laboratory/StructureDefinition/Result"					
-* group[=].target = "http://hl7.eu/fhir/laboratory/StructureDefinition/Observation-resultslab-eu-lab"					
+* group[+].source = "https://hl7.cz/fhir/lab/StructureDefinition/Result"					
+* group[=].target = "https://hl7.cz/fhir/lab/StructureDefinition/cz-observation-result-laboratory"					
 					
 * group[=].element[+].code = #Result.narrative					
 * group[=].element[=].display = "A.5.1 Laboratory report narrative"					
@@ -80,20 +80,20 @@ Usage: #definition
 * group[=].element[=].target.comment = "The mapping refers to the case 'code' mapped to Observation.code. A similar mapping applies to the other cases.
 This element typically  represents the 'full specified  name' designation, compared to the 'short name' of the 'A.5.2.3.3 Observation display name' element.
 It is not expected that both designations are recorded in the report; consumers can use in fact terminology services and/or lookup tables to allow users to have different displays for the same coded concept."					
-* group[=].element[+].code = #Result.observation.code.originalName					
-* group[=].element[=].display = "A.5.2.3.2 Observation original name"					
-* group[=].element[=].target.code = #Observation.code.text					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[=].target.comment = "The mapping refers to the case 'code' mapped to Observation.code. A similar mapping applies to the other cases."					
-* group[=].element[+].code = #Result.observation.code.displayName					
-* group[=].element[=].display = "A.5.2.3.3 Observation display name"					
-* group[=].element[=].target.code = #Observation.code.coding.display					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #equivalent					
-* group[=].element[=].target.comment = "The mapping refers to the case 'code' mapped to Observation.code. A similar mapping applies to the other cases.
-This element typically  represents the' short name' designation, compared to the 'full specified name' of the 'A.5.2.3.1 Observation name' element.
-It is not expected that both designations are recorded in the report; consumers can use in fact terminology services and/or lookup tables to allow users to have different displays for the same coded concept."					
+//* group[=].element[+].code = #Result.observation.code.originalName					
+//* group[=].element[=].display = "A.5.2.3.2 Observation original name"					
+//* group[=].element[=].target.code = #Observation.code.text					
+//* group[=].element[=].target.display = ""					
+//* group[=].element[=].target.equivalence = #equivalent					
+//* group[=].element[=].target.comment = "The mapping refers to the case 'code' mapped to Observation.code. A similar mapping applies to the other cases."					
+//* group[=].element[+].code = #Result.observation.code.displayName					
+//* group[=].element[=].display = "A.5.2.3.3 Observation display name"					
+//* group[=].element[=].target.code = #Observation.code.coding.display					
+//* group[=].element[=].target.display = ""					
+//* group[=].element[=].target.equivalence = #equivalent					
+//* group[=].element[=].target.comment = "The mapping refers to the case 'code' mapped to Observation.code. A similar mapping applies to the other cases.
+//This element typically  represents the' short name' designation, compared to the 'full specified name' of the 'A.5.2.3.1 Observation name' element.
+//It is not expected that both designations are recorded in the report; consumers can use in fact terminology services and/or lookup tables to allow users to have different displays for the same coded concept."					
 * group[=].element[+].code = #Result.observation.method					
 * group[=].element[=].display = "A.5.2.4 Observation method"					
 * group[=].element[=].target.code = #Observation.method					
@@ -107,13 +107,13 @@ It is not expected that both designations are recorded in the report; consumers 
 * group[=].element[=].target.equivalence = #relatedto					
 * group[=].element[=].target.comment = "When it refers to the measuring device, including kits, and device of type Device"					
 * group[=].element[+].code = #Result.observation.device					
-* group[=].element[=].display = "A.5.2.5 Observation device"					
+* group[=].element[=].display = "A.5.2.7 Observation device"					
 * group[=].element[=].target.code = #Observation.device.device					
 * group[=].element[=].target.display = ""					
 * group[=].element[=].target.equivalence = #relatedto					
 * group[=].element[=].target.comment = "When it refers to the measuring device and device of type DeviceMeasure"					
 * group[=].element[+].code = #Result.observation.device					
-* group[=].element[=].display = "A.5.2.5 Observation device"					
+* group[=].element[=].display = "A.5.2.7 Observation device"					
 * group[=].element[=].target.code = #Observation.device					
 * group[=].element[=].target.display = ""					
 * group[=].element[=].target.equivalence = #relatedto					
@@ -202,8 +202,8 @@ If the person responsible for validation:  performer.extension:performerFunction
 					
 					
 					
-* group[+].source = "http://hl7.eu/fhir/laboratory/StructureDefinition/Result"					
-* group[=].target = "http://hl7.eu/fhir/laboratory/StructureDefinition/DiagnosticReport-eu-lab"					
+* group[+].source = "https://hl7.cz/fhir/lab/StructureDefinition/Result"					
+* group[=].target = "https://hl7.cz/fhir/lab/StructureDefinition/cz-diagnostic-report-lab"					
 					
 * group[=].element[+].code = #Result.narrative					
 * group[=].element[=].display = "A.5.1 Laboratory report narrative"					
@@ -223,6 +223,7 @@ If the person responsible for validation:  performer.extension:performerFunction
 * group[=].element[=].target.display = ""					
 * group[=].element[=].target.equivalence = #relatedto					
 * group[=].element[=].target.comment = "if related to the overall report conclusions"					
+
 * group[=].element[+].code = #Result.observation					
 * group[=].element[=].display = "A.5.2 Observation details"					
 * group[=].element[=].target.code = #DiagnosticReport.result					
@@ -248,18 +249,18 @@ If the person responsible for validation:  performer.extension:performerFunction
 * group[=].element[=].target.equivalence = #relatedto					
 * group[=].element[=].target.comment = "see details in the Observation group"					
 * group[=].element[+].code = #Result.observation.code.originalName					
-* group[=].element[=].display = "A.5.2.3.2 Observation original name"					
-* group[=].element[=].target.code = #DiagnosticReport.result					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #relatedto					
-* group[=].element[=].target.comment = "see details in the Observation group"					
-* group[=].element[+].code = #Result.observation.code.displayName					
-* group[=].element[=].display = "A.5.2.3.3 Observation display name"					
-* group[=].element[=].target.code = #DiagnosticReport.result					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #relatedto					
-* group[=].element[=].target.comment = "see details in the Observation group"					
-* group[=].element[+].code = #Result.observation.method					
+//* group[=].element[=].display = "A.5.2.3.2 Observation original name"					
+//* group[=].element[=].target.code = #DiagnosticReport.result					
+//* group[=].element[=].target.display = ""					
+//* group[=].element[=].target.equivalence = #relatedto					
+//* group[=].element[=].target.comment = "see details in the Observation group"					
+//* group[=].element[+].code = #Result.observation.code.displayName					
+//* group[=].element[=].display = "A.5.2.3.3 Observation display name"					
+//* group[=].element[=].target.code = #DiagnosticReport.result					
+//* group[=].element[=].target.display = ""					
+//* group[=].element[=].target.equivalence = #relatedto					
+//* group[=].element[=].target.comment = "see details in the Observation group"					
+//* group[=].element[+].code = #Result.observation.method					
 * group[=].element[=].display = "A.5.2.4 Observation method"					
 * group[=].element[=].target.code = #DiagnosticReport.result					
 * group[=].element[=].target.display = ""					
@@ -320,8 +321,8 @@ If the person responsible for validation:  performer.extension:performerFunction
 					
 					
 					
-* group[+].source = "http://hl7.eu/fhir/laboratory/StructureDefinition/Result"					
-* group[=].target = "http://hl7.eu/fhir/laboratory/StructureDefinition/Composition-eu-lab"					
+* group[+].source = "https://hl7.cz/fhir/lab/StructureDefinition/Result"					
+* group[=].target = "https://hl7.cz/fhir/lab/StructureDefinition/cz-composition-lab-report"					
 					
 * group[=].element[+].code = #Result.narrative					
 * group[=].element[=].display = "A.5.1 Laboratory report narrative"					
@@ -360,6 +361,7 @@ If the person responsible for validation:  performer.extension:performerFunction
 * group[=].element[=].target.equivalence = #relatedto					
 * group[=].element[=].target.comment = "if multiple sections"					
 * group[=].element[+].code = #Result.observation					
+
 * group[=].element[=].display = "A.5.2 Observation details"					
 * group[=].element[=].target.code = #Composition.section:lab-no-subsections.entry					
 * group[=].element[=].target.display = ""					
@@ -390,17 +392,17 @@ If the person responsible for validation:  performer.extension:performerFunction
 * group[=].element[=].target.equivalence = #relatedto					
 * group[=].element[=].target.comment = "see details in the Observation group"					
 * group[=].element[+].code = #Result.observation.code.originalName					
-* group[=].element[=].display = "A.5.2.3.2 Observation original name"					
-* group[=].element[=].target.code = #Composition.section:lab-no-subsections.entry					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #relatedto					
-* group[=].element[=].target.comment = "see details in the Observation group"					
-* group[=].element[+].code = #Result.observation.code.displayName					
-* group[=].element[=].display = "A.5.2.3.3 Observation display name"					
-* group[=].element[=].target.code = #Composition.section:lab-no-subsections.entry					
-* group[=].element[=].target.display = ""					
-* group[=].element[=].target.equivalence = #relatedto					
-* group[=].element[=].target.comment = "see details in the Observation group"					
+//* group[=].element[=].display = "A.5.2.3.2 Observation original name"					
+//* group[=].element[=].target.code = #Composition.section:lab-no-subsections.entry					
+//* group[=].element[=].target.display = ""					
+//* group[=].element[=].target.equivalence = #relatedto					
+//* group[=].element[=].target.comment = "see details in the Observation group"					
+//* group[=].element[+].code = #Result.observation.code.displayName					
+//* group[=].element[=].display = "A.5.2.3.3 Observation display name"					
+//* group[=].element[=].target.code = #Composition.section:lab-no-subsections.entry					
+//* group[=].element[=].target.display = ""					
+//* group[=].element[=].target.equivalence = #relatedto					
+//* group[=].element[=].target.comment = "see details in the Observation group"					
 * group[=].element[+].code = #Result.observation.method					
 * group[=].element[=].display = "A.5.2.4 Observation method"					
 * group[=].element[=].target.code = #Composition.section:lab-no-subsections.entry					

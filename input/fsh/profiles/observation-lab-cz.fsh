@@ -73,7 +73,7 @@ This observation may represent the result of a simple laboratory test such as he
 * issued MS
 
 // TODO: add standard extension for different performer roles to support all roles in current DASTA standard
-* performer only Reference(CareTeam or RelatedPerson or CZ_PatientLab or CZ_OrganizationCore or CZ_PractitionerRoleCore or CZ_PractitionerCore)
+* performer only Reference(CareTeam or RelatedPerson or CZ_PatientCore or CZ_OrganizationCore or CZ_PractitionerRoleCore or CZ_PractitionerCore)
 * performer MS
 * performer ^short = "In the initial iteration of the Czech interoperability project: this is Organization (CZ) or Practitioner (CZ)"
 * value[x] MS

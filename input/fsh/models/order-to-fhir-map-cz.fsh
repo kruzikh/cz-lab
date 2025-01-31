@@ -11,11 +11,11 @@ Usage: #definition
 * experimental = true					
 * description = "eHN Order to this guide Map"					
 * purpose = "It shows how the Order data set defined by the EU eHN guidelines is mapped into this guide"					
-* sourceUri = "http://hl7.eu/fhir/laboratory/StructureDefinition/Order"					
-* targetUri = "http://hl7.eu/fhir/laboratory/StructureDefinition/ServiceRequest-eu-lab"					
+* sourceUri = "https://hl7.cz/fhir/lab/StructureDefinition/OrderCz"					
+* targetUri = "https://hl7.cz/fhir/lab/StructureDefinition/cz-service-request-lab"					
 					
-* group[+].source = "http://hl7.eu/fhir/laboratory/StructureDefinition/Order"					
-* group[=].target = "http://hl7.eu/fhir/laboratory/StructureDefinition/ServiceRequest-eu-lab"					
+* group[+].source = "https://hl7.cz/fhir/lab/StructureDefinition/OrderCz"					
+* group[=].target = "https://hl7.cz/fhir/lab/StructureDefinition/cz-service-request-lab"					
 					
 * group[=].element[+].code = #Order.orderDetails					
 * group[=].element[=].display = "A.2 Order information"					

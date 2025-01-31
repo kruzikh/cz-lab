@@ -1,7 +1,7 @@
 // -------------------------------------------------------------------------------				
-//  Logical Model				lab-specimen.fsh
+//  Logical Model				lab-specimen-cz.fsh
 // -------------------------------------------------------------------------------				
-Logical: SpecimenLabEhn				
+Logical: SpecimenLabEhnCz				
 Id: SpecimenLab				
 Title: "A.4 - Specimen information"				
 Description:  """Specimen information. Section A4 of the eHN guideline."""				

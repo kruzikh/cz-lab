@@ -1,7 +1,7 @@
 // -------------------------------------------------------------------------------				
-//  Logical Model				lab-result.fsh
+//  Logical Model				lab-result-cz.fsh
 // -------------------------------------------------------------------------------				
-Logical: ResultLabEhn				
+Logical: ResultLabEhnCz				
 Id: Result				
 Title: "A.5 - Results data elements"				
 Description:  """Results data elements. Section A5 of the eHN guideline."""				

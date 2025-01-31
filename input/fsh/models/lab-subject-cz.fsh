@@ -20,29 +20,29 @@ If different, 'physiological gender' should be communicated elsewhere
 * identification.languageOfCommunication 0..* CodeableConcept  "A.1.1.7 Language of communication" """Language(s) in which the patient communicates
 - Preferred system(s): NCLP EJAZYK"""
 
-* addressTelecom 0..1 BackboneElement "A.1.2 Patient/subject related contact information" """A.1.2 Patient/subject related contact information"""				
-* addressTelecom.address 0..* Address "A.1.2.1 Address" """Mailing and home or office addresses. The addresses are always sequences of address parts (e.g. street address line, country, ZIP code, city) even if postal address formats may vary depending on the country. An address may or may not include a specific use code; if this attribute is not present it is assumed to be the default address useful for any purpose. - Preferred system(s):  eHDSICountry (ISO 3166)"""				
-* addressTelecom.telecom 0..* ContactPoint "A.1.2.2 Telecom" """Telecommunication contact information (e-mail, phone number, etc.) associated to a person. Multiple telecommunication addresses might be provided. - Preferred system(s): """				
+* contactInformation 0..1 BackboneElement "A.1.2 Patient/subject related contact information" """A.1.2 Patient/subject related contact information"""				
+* contactInformation.address 0..* Address "A.1.2.1 Address" """Mailing and home or office addresses. The addresses are always sequences of address parts (e.g. street address line, country, ZIP code, city) even if postal address formats may vary depending on the country. An address may or may not include a specific use code; if this attribute is not present it is assumed to be the default address useful for any purpose. - Preferred system(s):  eHDSICountry (ISO 3166)"""				
+* contactInformation.telecom 0..* ContactPoint "A.1.2.2 Telecom" """Telecommunication contact information (e-mail, phone number, etc.) associated to a person. Multiple telecommunication addresses might be provided. - Preferred system(s): """				
 
-* addressTelecom.preferedPhysician 0..* BackboneElement "A.1.2.3 Prefered physician" """The registering general practitioner or another physician who can provide information about the patient. Particularly important for patients with rare diseases."""
-* addressTelecom.preferedPhysician.Identifier 1..1 Identifier "A.1.2.3.1 Identification of the prefered physician" """Identification number of the health care professional according to the National Register of Health Care Professionals (NRZP)."""
-* addressTelecom.preferedPhysician.Name 1..1 HumanName "A.1.2.3.2 Name of the prefered physician" """The name of the physician with whom the patient is under the care of or who is registering the patient."""
-* addressTelecom.preferedPhysician.Specialization 0..* CodeableConcept "A.1.2.3.3 Specialization of the prefered physician" """Specialization of the doctor (Practical medicine for children and adolescents, General medicine for adults, internal medicine, gynaecology and obstetrics, etc.)
+* contactInformation.preferedPhysician 0..* BackboneElement "A.1.2.3 Prefered physician" """The registering general practitioner or another physician who can provide information about the patient. Particularly important for patients with rare diseases."""
+* contactInformation.preferedPhysician.Identifier 1..1 Identifier "A.1.2.3.1 Identification of the prefered physician" """Identification number of the health care professional according to the National Register of Health Care Professionals (NRZP)."""
+* contactInformation.preferedPhysician.Name 1..1 HumanName "A.1.2.3.2 Name of the prefered physician" """The name of the physician with whom the patient is under the care of or who is registering the patient."""
+* contactInformation.preferedPhysician.Specialization 0..* CodeableConcept "A.1.2.3.3 Specialization of the prefered physician" """Specialization of the doctor (Practical medicine for children and adolescents, General medicine for adults, internal medicine, gynaecology and obstetrics, etc.)
 - Preferred system(s): NR-ZP Specializace lékařů"""
-* addressTelecom.preferedPhysician.providerIdentifierName 0..1 string "A.1.2.3.4 Identification and name of the provider the doctor represents" """Identifier (IČO, NRPZS) and name of the provider the doctor represents"""
-* addressTelecom.preferedPhysician.providerAddress 0..1 Address "A.1.2.3.5 Provider address" """Mailing, home and/or office address. Addresses are always a sequence of parts of an address (e.g. address line, country, zip code, city), although the format of the postal address may vary depending on the country. The address may contain information about the type of address; if this attribute is not present, it is assumed to be a default address usable for any purpose."""
-* addressTelecom.preferedPhysician.telecom 0..* ContactPoint "A.1.2.3.6 Telecom" """Telecommunication contact (e-mail, phone, etc.)."""
+* contactInformation.preferedPhysician.providerIdentifierName 0..1 string "A.1.2.3.4 Identification and name of the provider the doctor represents" """Identifier (IČO, NRPZS) and name of the provider the doctor represents"""
+* contactInformation.preferedPhysician.providerAddress 0..1 Address "A.1.2.3.5 Provider address" """Mailing, home and/or office address. Addresses are always a sequence of parts of an address (e.g. address line, country, zip code, city), although the format of the postal address may vary depending on the country. The address may contain information about the type of address; if this attribute is not present, it is assumed to be a default address usable for any purpose."""
+* contactInformation.preferedPhysician.telecom 0..* ContactPoint "A.1.2.3.6 Telecom" """Telecommunication contact (e-mail, phone, etc.)."""
 
-* addressTelecom.legalRepresent 0..* BackboneElement "A.1.2.4 Legal representatives and other contact persons" """"""
-* addressTelecom.legalRepresent.type 0..1 CodeableConcept "A.1.2.4.1 Contact type" """Type of contact person distinguishing emergent contacts, legal guardians and other persons with a relationship to the patient.
+* contactInformation.legalRepresent 0..* BackboneElement "A.1.2.4 Legal representatives and other contact persons" """"""
+* contactInformation.legalRepresent.type 0..1 CodeableConcept "A.1.2.4.1 Contact type" """Type of contact person distinguishing emergent contacts, legal guardians and other persons with a relationship to the patient.
 - Preferred system(s): HL7 Role"""
-* addressTelecom.legalRepresent.relationToSubject 0..1 CodeableConcept "A.1.2.4.2 Relationship to the patient" """Relationship of the person to the patient (father, son, daughter, etc.).
+* contactInformation.legalRepresent.relationToSubject 0..1 CodeableConcept "A.1.2.4.2 Relationship to the patient" """Relationship of the person to the patient (father, son, daughter, etc.).
 - Preferred system(s): eHDSIPersonalRelationship"""
-* addressTelecom.legalRepresent.identifier 0..* Identifier  "A.1.2.4.3 Person identifier" """An identifier of the patient that is unique within a defined scope (birth number, passport number, etc.). Multiple identifiers could be provided. """
-* addressTelecom.legalRepresent.givenName 1..* string "A.1.2.4.4 Given name" """The given name/first name of the person (also known as forename or first name)."""
-* addressTelecom.legalRepresent.familyName 1..* string "A.1.2.4.5 Family name/surname" """The family name/surname/last name of the person."""
-* addressTelecom.legalRepresent.address 0..1 Address "A.1.2.4.6 Contact person address" """Mailing, home and/or office address. Addresses are always a sequence of parts of an address (e.g. address line, country, zip code, city), although the format of the postal address may vary depending on the country. The address may contain information about the type of address; if this attribute is not present, it is assumed to be a default address usable for any purpose."""
-* addressTelecom.legalRepresent.telecom 0..* ContactPoint "A.1.2.4.7 Telecom" """Telecommunication contact (e-mail, phone, etc.)."""
+* contactInformation.legalRepresent.identifier 0..* Identifier  "A.1.2.4.3 Person identifier" """An identifier of the patient that is unique within a defined scope (birth number, passport number, etc.). Multiple identifiers could be provided. """
+* contactInformation.legalRepresent.givenName 1..* string "A.1.2.4.4 Given name" """The given name/first name of the person (also known as forename or first name)."""
+* contactInformation.legalRepresent.familyName 1..* string "A.1.2.4.5 Family name/surname" """The family name/surname/last name of the person."""
+* contactInformation.legalRepresent.address 0..1 Address "A.1.2.4.6 Contact person address" """Mailing, home and/or office address. Addresses are always a sequence of parts of an address (e.g. address line, country, zip code, city), although the format of the postal address may vary depending on the country. The address may contain information about the type of address; if this attribute is not present, it is assumed to be a default address usable for any purpose."""
+* contactInformation.legalRepresent.telecom 0..* ContactPoint "A.1.2.4.7 Telecom" """Telecommunication contact (e-mail, phone, etc.)."""
 //--- END				
 //--- END				
 //--- END				

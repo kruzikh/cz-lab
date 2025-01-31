@@ -43,7 +43,7 @@ Description: "This profile represents the constraints applied to the Bundle reso
 * entry[diagnosticReport].resource only CZ_DiagnosticReportLab
 
 * entry contains patient 0..1
-* entry[patient].resource only CZ_PatientLab or CZ_PatientAnimalLab
+* entry[patient].resource only CZ_PatientCore or CZ_PatientAnimal
 
 * entry contains observation 0..*
 * entry[observation].resource only CZ_ObservationResultLaboratory
